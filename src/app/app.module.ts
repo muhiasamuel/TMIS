@@ -22,6 +22,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { MvpsComponent } from './pages/mvps/mvps.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SignInComponent } from './authentication/sign-in/sign-in.component';
     RolesComponent,
     MvpsComponent,
     SignInComponent,
+    ErrorPageComponent,
    
   ],
   imports: [

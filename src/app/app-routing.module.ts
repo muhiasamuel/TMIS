@@ -14,6 +14,7 @@ import { AppraisalsComponent } from './pages/appraisals/appraisals.component';
 import { UserComponent } from './pages/user/user.component';
 import { MvpsComponent } from './pages/mvps/mvps.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 const routes: Routes = [
   {
@@ -39,7 +40,7 @@ const routes: Routes = [
   ]},
   {
     path: '**',
-    redirectTo: 'dashboard'
+    component: ErrorPageComponent
   }
 ]
 
