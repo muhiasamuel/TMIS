@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-self-assessment',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './self-assessment.component.scss'
 })
 export class SelfAssessmentComponent {
-
+  constructor(private route:Router){}
+  clicked(){
+    this.route.navigate(['/dashboard']);
+    
+  }
 }
