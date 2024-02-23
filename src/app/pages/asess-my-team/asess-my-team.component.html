@@ -1,1 +1,26 @@
-<p>asess-my-team works!</p>
+<h3>Assess My Team's Potential</h3>
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>PF</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.PF}}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.Department }}</td>
+            <td>
+                <button (click)="toggleCard()">View</button>
+                <div class="card" *ngIf="showCard">
+                    <h2>Card Content</h2>
+                    <p></p>
+                </div>
+                <button>assess</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
