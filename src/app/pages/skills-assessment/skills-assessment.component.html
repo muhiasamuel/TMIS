@@ -1,1 +1,58 @@
-<p>skills-assessment works!</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment of Critical Skills</title>
+</head>
+<body>
+    <div class="container">
+        <div class="side-text">
+            <!-- Support information goes here -->
+        </div>
+        <div class="skills-table">
+            <table>
+                <!-- Table headers -->
+                <thead>
+                    <tr>
+                        <th>Skill Name / Definition</th>
+                        <th>Business Priority</th>
+                        <th>Scarcity Parameter</th>
+                        <th>Development Cost & Time Commitment</th>
+                        <th>Market Fluidity</th>
+                        <th>Future Market / Technology Relevance</th>
+                        <th>Average Rating</th>
+                        <th>Current State Skill Availability / Development Plan</th>
+                        <th>Skill Development Strategy</th>
+                    </tr>
+                </thead>
+                <!-- Table body for data -->
+                <tbody>
+                    <!-- Rows will be dynamically added here -->
+                    <tr *ngFor="let row of rows; let i = index">
+                        <td><input type="text" [(ngModel)]="row.skillName" (input)="handleChange()"></td>
+                        <td><input type="number" [(ngModel)]="row.businessPriority" min="1" max="5" (input)="handleChange()" ></td>
+                        <td><input type="number" [(ngModel)]="row.scarcityParameter" min="1" max="5" (input)="handleChange()"></td>
+                        <td><input type="number" [(ngModel)]="row.developmentCost" min="1" max="5" (input)="handleChange()"></td>
+                        <td><input type="number" [(ngModel)]="row.marketFluidity" min="1" max="5" (input)="handleChange()"></td>
+                        <td><input type="number" [(ngModel)]="row.technologyRelevance" min="1" max="5" (input)="handleChange()"></td>
+                        <td>{{ calculateAverage() }}</td>
+                        <td [ngClass]="getSkillAvailabilityClass(row.skillAvailability)">
+                            <select [(ngModel)]="row.skillAvailability" (change)="handleChange()">
+                              <option value="Red">Red</option>
+                              <option value="Amber">Amber</option>
+                              <option value="Green">Green</option>
+                            </select>
+                          </td>
+                        <td><input type="text" [(ngModel)]="row.developmentStrategy" (input)="handleChange()"></td>
+                    </tr>
+                    
+
+                </tbody>
+            </table>
+            <button (click)="addRow()">Add Row</button>
+            <p>Average Rating: {{ averageRating }}</p>
+        </div>
+    </div>
+</body>
+</html>
