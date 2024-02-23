@@ -14,17 +14,17 @@ import { AppraisalsComponent } from '../../pages/appraisals/appraisals.component
 import { MvpsComponent } from '../../pages/mvps/mvps.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'assess-my-potential',      component: SelfAssessmentComponent },
-    { path: 'assess-my-team',      component: AsessMyTeamComponent },
-    { path: 'roles',      component: RolesComponent },
-    { path: 'critical-skills-assessment',      component: SkillsAssessmentComponent },
-    { path: 'critical-roles-assessment',      component: CriticalRolesAssessmentComponent },
-    { path: 'succession-plan',      component: SuccessionPlanComponent },
-    { path: 'talent-mapping',      component: TalentMappingComponent },
-    { path: 'users',      component: UsersComponent },
-    { path: 'appraisals',      component: AppraisalsComponent },
-    { path: 'user',      component: UserComponent },
-    { path: 'mvps',      component: MvpsComponent },
+    // { path: 'dashboard',      component: DashboardComponent },
+    // { path: 'assess-my-potential',      component: SelfAssessmentComponent },
+    // { path: 'assess-my-team',      component: AsessMyTeamComponent },
+    // { path: 'roles',      component: RolesComponent },
+    // { path: 'critical-skills-assessment',      component: SkillsAssessmentComponent },
+    // { path: 'critical-roles-assessment',      component: CriticalRolesAssessmentComponent },
+    // { path: 'succession-plan',      component: SuccessionPlanComponent },
+    // { path: 'talent-mapping',      component: TalentMappingComponent },
+    // { path: 'users',      component: UsersComponent },
+    // { path: 'appraisals',      component: AppraisalsComponent },
+    // { path: 'user',      component: UserComponent },
+    // { path: 'mvps',      component: MvpsComponent },
 
 ];

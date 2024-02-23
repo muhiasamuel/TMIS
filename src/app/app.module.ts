@@ -21,6 +21,9 @@ import { AppraisalsComponent } from './pages/appraisals/appraisals.component';
 import { UsersComponent } from './pages/users/users.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { MvpsComponent } from './pages/mvps/mvps.component';
+import { SignInComponent } from './authentication/sign-in/sign-in.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,17 +43,19 @@ import { MvpsComponent } from './pages/mvps/mvps.component';
     UsersComponent,
     RolesComponent,
     MvpsComponent,
+    SignInComponent,
+    ErrorPageComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     ToastrModule.forRoot()
     
   ],
   providers: [
-    provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })
