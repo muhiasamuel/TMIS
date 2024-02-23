@@ -1,0 +1,71 @@
+.skills-table {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+  
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+  
+      th {
+        background-color: #f2f2f2;
+      }
+  
+      td input[type="text"],
+      td input[type="number"] {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+  
+      td input[type="number"] {
+        text-align: center;
+      }
+  
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+  
+      tr:hover {
+        background-color: #ddd;
+      }
+    }
+  
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #45a049;
+      }
+    }
+  
+    p {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    // skills-assessment.component.scss
+
+   .red {
+        background-color: red;
+    }
+
+    .amber {
+      background-color: orange;
+    }
+
+    .green {
+       background-color: green;
+    }
+    }
