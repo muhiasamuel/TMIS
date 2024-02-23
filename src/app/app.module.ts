@@ -23,6 +23,7 @@ import { RolesComponent } from './pages/roles/roles.component';
 import { MvpsComponent } from './pages/mvps/mvps.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,11 +51,11 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     ToastrModule.forRoot()
     
   ],
   providers: [
-    provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })
