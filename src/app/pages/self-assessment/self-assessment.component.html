@@ -1,2 +1,70 @@
-<p>self-assessment works!</p>
-<button (click)="clicked()">hello</button>
+<div class="container">
+  <div class="self-assess">
+    <table>
+      <thead>
+        <tr>
+          <th>Potential Attribute</th>
+          <th>Bahavarial Descriptor</th>
+          <th>Description</th>
+          <th>Score</th>
+          <th>Sub Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows; let i = index">
+          <td>
+            <input type="text" placeholder="Aspiration" style="border-radius: 30px; padding: 10px;" [(ngModel)]="row.potentialAttribute">
+          </td>
+          <td>
+            <input type="text" placeholder="Hunger to sucess" style="border-radius: 30px; padding: 10px;" [(ngModel)]="row.behavioralDescriptor">
+          </td>
+          <td>
+            <textarea cols="80%" rows="2" placeholder="Has a strong desire to work and achive his goals, sets a high bar for themselves" style="border-radius: 30px; padding: 10px;"  [(ngModel)]="row.description"></textarea>
+          </td>
+          <td>
+            <input type="number" min="0" max="6" style="text-align: center; border-radius: 30px; padding: 10px;" [(ngModel)]="row.score">
+          </td>
+          <td>
+            <input type="text" style="width: 50px; border-radius: 30px; padding: 10px 10px 10px 0;; text-align: center;" [(ngModel)]="calculateSubtotal">
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+    <!--
+    <button style="margin-right: 30px;" (click)="addAttribute()">Add Attribute</button>
+    <button (click)="removeAttribute(index)">Remove Attribute</button>
+    -->
+ 
+    <br><br>
+
+    <button style="background-color: brown;" (click)="scoringDescription()">Scoring guide</button>
+    <div  *ngIf="showDescription">
+      <table style="width: 40%;">
+        <thead>
+          <tr>
+            <th>Score</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0-2</td>
+            <td>Rerely demonstrates this behaviour</td>
+          </tr>
+          <tr>
+            <td>2-4</td>
+            <td>Sometimes demonstrates this behaviour</td>
+          </tr>
+          <tr>
+            <td>5-6</td>
+            <td>Regularly demonstrates this behaviour</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+  </div>
+</div>
