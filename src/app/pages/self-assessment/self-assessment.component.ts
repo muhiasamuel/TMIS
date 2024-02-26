@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
 
 
@@ -10,12 +11,17 @@ interface Row{
   score: number;
   subTotal:string; 
 }
+=======
+import { AssessmentService } from '../../services/data/assessment.service';
+import { log } from 'console';
+>>>>>>> b02d39a2e8e74f91fdcac51bcc931b10a2f6320f
 
 @Component({
   selector: 'app-self-assessment',
   templateUrl: './self-assessment.component.html',
   styleUrl: './self-assessment.component.scss'
 })
+<<<<<<< HEAD
 export class SelfAssessmentComponent {
 index: any
 
@@ -72,4 +78,25 @@ calculateAvarage() {
     this.route.navigate(['/dashboard']);
     
   }
+=======
+export class SelfAssessmentComponent implements OnInit{
+  asessment: any=''
+  aspiration:any =''
+  constructor(private route:Router,
+   public dataService:AssessmentService){}
+
+    ngOnInit(): void {
+      this.getAssessmentData()
+    }
+
+    getAssessmentData(){
+     let data = this.dataService.getData()
+     this.asessment = data
+     this.aspiration = data[0]
+     console.log(this.aspiration);
+     
+     
+    }
+
+>>>>>>> b02d39a2e8e74f91fdcac51bcc931b10a2f6320f
 }
