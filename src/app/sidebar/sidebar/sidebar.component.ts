@@ -12,7 +12,6 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard',     title: 'Dashboard',         icon:'nc-bank',       class: 'text-dark' },
     { path: '/assess-my-potential',         title: 'assess my Potential',             icon:'nc-diamond',    class: 'text-dark' },
     { path: '/assess-my-team',          title: 'Assess My Team',              icon:'nc-pin-3',      class: '' },
-    { path: '/appraisals',          title: 'Appraisals',      icon:'nc-basket',  class: '' },
     { path: '/critical-roles-assessment', title: 'Assess Critical Roles',     icon:'nc-bell-55',    class: '' },    
     { path: '/critical-skills-assessment',         title: 'Assess Critical Skills',        icon:'nc-tile-56',    class: '' },
     { path: '/talent-mapping',    title: 'Talent Mapping',        icon:'nc-caps-small', class: '' },
