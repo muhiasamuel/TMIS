@@ -24,6 +24,12 @@ import { MvpsComponent } from './pages/mvps/mvps.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table'
+import { MatPaginator } from '@angular/material/paginator';
+import { ViewDialogComponent } from './view-dialog/view-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 @NgModule({
   declarations: [
@@ -45,13 +51,17 @@ import { FormsModule } from '@angular/forms';
     MvpsComponent,
     SignInComponent,
     ErrorPageComponent,
-   
+    ViewDialogComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    MatPaginator,
     FormsModule,
+    MatTableModule,
+    MatDialogModule,
     ToastrModule.forRoot()
     
   ],
