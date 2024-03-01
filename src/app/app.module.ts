@@ -23,7 +23,14 @@ import { RolesComponent } from './pages/roles/roles.component';
 import { MvpsComponent } from './pages/mvps/mvps.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatStepperModule} from '@angular/material/stepper';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -49,9 +56,19 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    MatStepperModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatStepperModule,
+    MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     NgbModule,
     FormsModule,
+    MatIconModule,
     ToastrModule.forRoot()
     
   ],

@@ -1,1 +1,139 @@
-<p>critical-roles-assessment works!</p>
+<button mat-raised-button (click)="isEditable = !isEditable">
+    {{ !isEditable ? 'Enable edit mode' : 'Disable edit mode' }}
+  </button>
+  
+  <mat-stepper linear #stepper>
+    <mat-step [stepControl]="roleNameFormGroup" [editable]="isEditable">
+      <form [formGroup]="roleNameFormGroup">
+        <ng-template id="matStepLabel" matStepLabel>
+            <span>Role Name</span>
+        </ng-template>
+        <mat-label class="mb-4">Add a Role To Assess</mat-label>
+        <br>
+        <mat-form-field id="matinput">
+          
+          <input matInput formControlName="roleName" placeholder="Enter Role Name" required>
+        </mat-form-field>
+        <div>
+          <button class="btn btn-info text-white" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+  
+    <mat-step [stepControl]="strategicImportanceFormGroup" [editable]="isEditable">
+      <form [formGroup]="strategicImportanceFormGroup">
+        <ng-template  matStepLabel>
+            <span>Strategic Importance</span>   
+        </ng-template>
+        <label id="example-radio-group-label">select strategic Importance for added role</label>
+        <mat-radio-group
+        class="example-radio-group"
+         formControlName="strategicImportance">
+          <mat-radio-button class="example-radio-button" *ngFor="let score of scores" [value]="score">{{score}}</mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button  matStepperPrevious>Back</button>
+          <button  matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+  
+    <mat-step [stepControl]="revenueImpactFormGroup" [editable]="isEditable">
+      <form [formGroup]="revenueImpactFormGroup">
+        <ng-template matStepLabel>
+            <span>Revenue/Value/Risk Impact</span>  
+        </ng-template>
+        <label id="example-radio-group-label">select Revenue/Value/Risk Impact level for added role</label>
+        <br>
+        <mat-radio-group formControlName="revenueImpact">
+          <mat-radio-button *ngFor="let score of scores" [value]="score">{{score}}</mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button class="btn btn-primary" mat-button matStepperPrevious>Back</button>
+          <button  mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="vacancyRiskFormGroup" [editable]="isEditable">
+        <form [formGroup]="vacancyRiskFormGroup">
+          <ng-template matStepLabel>
+            <span> Vacancy Risk</span>  
+        </ng-template>
+          <label id="example-radio-group-label">select Vacancy Risk level for added role</label>
+          <mat-radio-group formControlName="vacancyRisk">
+            <mat-radio-button *ngFor="let score of scores" [value]="score">{{score}}</mat-radio-button>
+          </mat-radio-group>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="skillExpirienceFormGroup" [editable]="isEditable">
+        <form [formGroup]="skillExpirienceFormGroup">
+          <ng-template matStepLabel>
+            <span> Skill/Expirience</span>  
+        </ng-template>
+          <label id="example-radio-group-label">select Skill/Expirience/Organisation Memory level for added role</label>
+          <mat-radio-group formControlName="skillExpirience">
+            <mat-radio-button *ngFor="let score of scores" [value]="score">{{score}}</mat-radio-button>
+          </mat-radio-group>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="impactOnOperationFormGroup" [editable]="isEditable">
+        <form [formGroup]="impactOnOperationFormGroup">
+          <ng-template matStepLabel>
+            <span> Impact on Operation</span>  
+        </ng-template>
+          <label id="example-radio-group-label">select Impact On Operation level for added role</label>
+          <mat-radio-group formControlName="impactOnOperation">
+            <mat-radio-button *ngFor="let score of scores" [value]="score">{{score}}</mat-radio-button>
+          </mat-radio-group>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="talentStrategyFormGroup">
+        <form [formGroup]="talentStrategyFormGroup">
+          <ng-template matStepLabel>
+            <span> Fill out your name</span>           
+        </ng-template>
+          <mat-form-field style="width: 70vw;">
+            <mat-label>
+                <span>Talent Strategy To Adopt</span>    
+            </mat-label>
+            <textarea 
+            matInput 
+            placeholder="Talent Strategy To Adopt" 
+            formControlName="talentStrategy"
+            rows="8" cols="100"
+            required></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+  
+    <mat-step>
+      <ng-template matStepLabel>
+       <span>Done</span> 
+    </ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="stepper.previous()">Back</button>
+        <button mat-button (click)="processValues()">Submit</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+  
