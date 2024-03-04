@@ -31,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -69,10 +70,12 @@ import {MatRadioModule} from '@angular/material/radio';
     NgbModule,
     FormsModule,
     MatIconModule,
+    HttpClientModule,
     ToastrModule.forRoot()
     
   ],
   providers: [
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

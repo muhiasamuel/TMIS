@@ -1,7 +1,4 @@
-<button mat-raised-button (click)="isEditable = !isEditable">
-    {{ !isEditable ? 'Enable edit mode' : 'Disable edit mode' }}
-  </button>
-  
+
   <mat-stepper linear #stepper>
     <mat-step [stepControl]="roleNameFormGroup" [editable]="isEditable">
       <form [formGroup]="roleNameFormGroup">
@@ -26,6 +23,7 @@
             <span>Strategic Importance</span>   
         </ng-template>
         <label id="example-radio-group-label">select strategic Importance for added role</label>
+        <br>
         <mat-radio-group
         class="example-radio-group"
          formControlName="strategicImportance">
@@ -45,7 +43,9 @@
         </ng-template>
         <label id="example-radio-group-label">select Revenue/Value/Risk Impact level for added role</label>
         <br>
-        <mat-radio-group formControlName="revenueImpact">
+        <mat-radio-group
+        class="example-radio-group"
+        formControlName="revenueImpact">
           <mat-radio-button *ngFor="let score of scores" [value]="score">{{score}}</mat-radio-button>
         </mat-radio-group>
         <div>
@@ -61,7 +61,10 @@
             <span> Vacancy Risk</span>  
         </ng-template>
           <label id="example-radio-group-label">select Vacancy Risk level for added role</label>
-          <mat-radio-group formControlName="vacancyRisk">
+          <br>
+          <mat-radio-group 
+          class="example-radio-group"
+          formControlName="vacancyRisk">
             <mat-radio-button *ngFor="let score of scores" [value]="score">{{score}}</mat-radio-button>
           </mat-radio-group>
           <div>
@@ -77,7 +80,10 @@
             <span> Skill/Expirience</span>  
         </ng-template>
           <label id="example-radio-group-label">select Skill/Expirience/Organisation Memory level for added role</label>
-          <mat-radio-group formControlName="skillExpirience">
+          <br>
+          <mat-radio-group
+          class="example-radio-group" 
+          formControlName="skillExpirience">
             <mat-radio-button *ngFor="let score of scores" [value]="score">{{score}}</mat-radio-button>
           </mat-radio-group>
           <div>
@@ -92,7 +98,10 @@
             <span> Impact on Operation</span>  
         </ng-template>
           <label id="example-radio-group-label">select Impact On Operation level for added role</label>
-          <mat-radio-group formControlName="impactOnOperation">
+          <br>
+          <mat-radio-group 
+          class="example-radio-group"
+          formControlName="impactOnOperation">
             <mat-radio-button *ngFor="let score of scores" [value]="score">{{score}}</mat-radio-button>
           </mat-radio-group>
           <div>
@@ -109,9 +118,10 @@
         </ng-template>
           <mat-form-field style="width: 70vw;">
             <mat-label>
-                <span>Talent Strategy To Adopt</span>    
+                <span >Talent Strategy To Adopt</span>    
             </mat-label>
             <textarea 
+            style="background-color: white; border: none;"
             matInput 
             placeholder="Talent Strategy To Adopt" 
             formControlName="talentStrategy"
