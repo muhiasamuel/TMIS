@@ -1,58 +1,136 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assessment of Critical Skills</title>
-</head>
-<body>
-    <div class="container">
-        <div class="side-text">
-            <!-- Support information goes here -->
+    <mat-stepper [linear]="isLinear" #stepper>
+      <!-- Step 1: Skill Name -->
+      <mat-step [stepControl]="skillForm">
+        <form [formGroup]="skillForm">
+          <ng-template matStepLabel>Skill Name</ng-template>
+          <mat-form-field>
+            <mat-label>Skill Name</mat-label>
+            <input matInput formControlName="name" placeholder="Enter skill name" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      
+      <!-- Step 2: Business Priority -->
+      <mat-step [stepControl]="priorityForm">
+        <form [formGroup]="priorityForm">
+          <ng-template matStepLabel>Business Priority</ng-template>
+          <mat-form-field>
+            <mat-label>Business Priority</mat-label>
+            <input matInput formControlName="priority" type="number" placeholder="Enter priority (1-5)" min="1" max="5" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    
+      <!-- Step 3: Scarcity Parameter -->
+      <mat-step [stepControl]="scarcityForm">
+        <form [formGroup]="scarcityForm">
+          <ng-template matStepLabel>Scarcity Parameter</ng-template>
+          <mat-form-field>
+            <mat-label>Scarcity Parameter</mat-label>
+            <input matInput formControlName="scarcity" type="number" placeholder="Enter scarcity parameter (1-5)" min="1" max="5" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    
+      <!-- Step 4: Development Cost & Time Commitment -->
+      <mat-step [stepControl]="costForm">
+        <form [formGroup]="costForm">
+          <ng-template matStepLabel>Development Cost & Time Commitment</ng-template>
+          <mat-form-field>
+            <mat-label>Development Cost & Time Commitment</mat-label>
+            <input matInput formControlName="cost" type="number" placeholder="Enter cost and time commitment (1-5)" min="1" max="5" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    
+      <!-- Step 5: Market Fluidity -->
+      <mat-step [stepControl]="fluidityForm">
+        <form [formGroup]="fluidityForm">
+          <ng-template matStepLabel>Market Fluidity</ng-template>
+          <mat-form-field>
+            <mat-label>Market Fluidity</mat-label>
+            <input matInput formControlName="fluidity" type="number" placeholder="Enter market fluidity (1-5)" min="1" max="5" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    
+      <!-- Step 6: Future Market / Technology Relevance -->
+      <mat-step [stepControl]="relevanceForm">
+        <form [formGroup]="relevanceForm">
+          <ng-template matStepLabel>Future Market / Technology Relevance</ng-template>
+          <mat-form-field>
+            <mat-label>Future Market / Technology Relevance</mat-label>
+            <input matInput formControlName="relevance" type="number" placeholder="Enter future market relevance (1-5)" min="1" max="5" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    
+      <!-- Step 7: Current State Skill Availability / Development Plan -->
+      <mat-step [stepControl]="availabilityForm">
+        <form [formGroup]="availabilityForm">
+          <ng-template matStepLabel>Current State Skill Availability / Development Plan</ng-template>
+          <mat-form-field>
+            <mat-label>Current State Skill Availability / Development Plan</mat-label>
+            <mat-select formControlName="availability" placeholder="Select availability">
+              <mat-option value="red">Red</mat-option>
+              <mat-option value="amber">Amber</mat-option>
+              <mat-option value="green">Green</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    
+      <!-- Step 8: Skill Development Strategy -->
+      <mat-step [stepControl]="strategyForm">
+        <form [formGroup]="strategyForm">
+          <ng-template matStepLabel>Skill Development Strategy</ng-template>
+          <mat-form-field>
+            <mat-label>Skill Development Strategy</mat-label>
+            <textarea matInput formControlName="strategy" placeholder="Enter skill development strategy" required></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    
+      <!-- Step 9: Done -->
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">reset</button>
         </div>
-        <div class="skills-table">
-            <table>
-                <!-- Table headers -->
-                <thead>
-                    <tr>
-                        <th>Skill Name / Definition</th>
-                        <th>Business Priority</th>
-                        <th>Scarcity Parameter</th>
-                        <th>Development Cost & Time Commitment</th>
-                        <th>Market Fluidity</th>
-                        <th>Future Market / Technology Relevance</th>
-                        <th>Average Rating</th>
-                        <th>Current State Skill Availability / Development Plan</th>
-                        <th>Skill Development Strategy</th>
-                    </tr>
-                </thead>
-                <!-- Table body for data -->
-                <tbody>
-                    <!-- Rows will be dynamically added here -->
-                    <tr *ngFor="let row of rows; let i = index">
-                        <td><input type="text" [(ngModel)]="row.skillName" (input)="handleChange()"></td>
-                        <td><input type="number" [(ngModel)]="row.businessPriority" min="1" max="5" (input)="handleChange()" ></td>
-                        <td><input type="number" [(ngModel)]="row.scarcityParameter" min="1" max="5" (input)="handleChange()"></td>
-                        <td><input type="number" [(ngModel)]="row.developmentCost" min="1" max="5" (input)="handleChange()"></td>
-                        <td><input type="number" [(ngModel)]="row.marketFluidity" min="1" max="5" (input)="handleChange()"></td>
-                        <td><input type="number" [(ngModel)]="row.technologyRelevance" min="1" max="5" (input)="handleChange()"></td>
-                        <td>{{ calculateAverage() }}</td>
-                        <td [ngClass]="getSkillAvailabilityClass(row.skillAvailability)">
-                            <select [(ngModel)]="row.skillAvailability" (change)="handleChange()">
-                              <option value="Red">Red</option>
-                              <option value="Amber">Amber</option>
-                              <option value="Green">Green</option>
-                            </select>
-                          </td>
-                        <td><input type="text" [(ngModel)]="row.developmentStrategy" (input)="handleChange()"></td>
-                    </tr>
-                    
+      </mat-step>
+    </mat-stepper>
 
-                </tbody>
-            </table>
-            <button (click)="addRow()">Add Row</button>
-            <p>Average Rating: {{ averageRating }}</p>
-        </div>
-    </div>
-</body>
-</html>
