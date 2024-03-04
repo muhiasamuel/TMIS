@@ -86,6 +86,8 @@ import { HttpServiceService } from '../../services/http-service.service';
       }
 
       this.postSkillAssessment()
+     }else{
+      console.log('some values are missing!')
      }
 
       // Do something with the captured values
