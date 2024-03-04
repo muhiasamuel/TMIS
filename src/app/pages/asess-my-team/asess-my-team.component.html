@@ -42,15 +42,16 @@
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        
-        <div>
-        
-        <mat-paginator
-          [pageSize]="30"
-          aria-label="Select page of GitHub search results">
-        </mat-paginator>
-        </div>
           </table>
-    </div>
+          <div class="bg-dark">
+            
+          <mat-paginator 
+          class="bg-success"
+          [length]="100"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+          aria-label="Select page of employee"></mat-paginator>
+          </div>
 </div>
 

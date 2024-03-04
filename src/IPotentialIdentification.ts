@@ -3,4 +3,5 @@ export interface IPotentialIdentification{
     potentialattribute: string;
     descriptor: string;
     score: number; 
+    managerscore: number;
   }

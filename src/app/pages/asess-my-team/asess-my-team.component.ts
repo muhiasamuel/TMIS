@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ViewDialogComponent } from '../../view-dialog/view-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 export interface IEmployeeData{
@@ -19,6 +20,37 @@ const employeeData: IEmployeeData[] = [
   {id:4, pf:678, name:'Steve', department: 'Teller', action: 'View'},
   {id:5, pf:687, name:'Maggy', department: 'Cash', action: 'View'},
   {id:6, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:7, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:8, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:9, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:10, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:11, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:12, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:13, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:14, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:15, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:16, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:17, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:18, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:19, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:20, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:21, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:22, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:23, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:24, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:25, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:26, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:6, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:6, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:6, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:6, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:6, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:6, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:6, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:6, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+  {id:6, pf:245, name:'Augustine', department: 'Manager', action: 'View'},
+
+
 ]
 @Component({
   selector: 'app-asess-my-team',
@@ -29,15 +61,23 @@ const employeeData: IEmployeeData[] = [
 export class AsessMyTeamComponent {
 
   constructor(private router: Router, public dialog: MatDialog) {}
+  @ViewChild(MatPaginator,{static: false})
+   paginator!: MatPaginator;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   // method to open the dialog box
   openDialog(employee:any): void {
-    this.dialog.open(ViewDialogComponent);
+    this.dialog.open(ViewDialogComponent,{
+      width: '500px'
+    });
   }
   
   // dataSource: any = this.employeeData
   displayedColumns: any = ['id', 'pf', 'name', 'department', 'action']
   dataSource = new MatTableDataSource(employeeData);
+
 
 
     // method to handle button click
