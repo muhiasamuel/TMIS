@@ -9,7 +9,7 @@ export class HttpServiceService {
 
   constructor(private http:HttpClient) { }
 
-  serverUrl: string = 'http://localhost:8080/';
+  serverUrl: string = 'http://192.168.89.128:8080/';
  
   //add RolesFor assesssment
    data = {
