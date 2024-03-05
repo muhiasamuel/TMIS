@@ -1,64 +1,80 @@
-.mat-mdc-form-field {
-    margin-top: 16px;
-  }
+// .mat-mdc-form-field {
+//     margin-top: 16px;
+//   }
 
-/* Stepper container */
-.mat-stepper-horizontal {
-    background-color: #d6d4d4;  /* Dark background color */
-  }
+// /* Stepper container */
+// .mat-stepper-horizontal {
+//     background-color: #d6d4d4;  /* Dark background color */
+//   }
   
-  /* Stepper labels and content */
-  span{
-    font-weight: bold;
-    font: 1em;
-    color: rgb(161, 42, 43); /* White dark */
-  }
+//   /* Stepper labels and content */
+//   span{
+//     font-weight: bold;
+//     font: 1em;
+//     color: rgb(161, 42, 43); /* White dark */
+//   }
   
-  /* Optional - Styling for focused state */
-  .mat-step-header .mat-step-label.cdk-keyboard-focused, 
-  .mat-step-header .mat-step-label.cdk-program-focused {
-    color: #f4f3f3; /* Slightly off-white for better contrast */
-  }
+//   /* Optional - Styling for focused state */
+//   .mat-step-header .mat-step-label.cdk-keyboard-focused, 
+//   .mat-step-header .mat-step-label.cdk-program-focused {
+//     color: #f4f3f3; /* Slightly off-white for better contrast */
+//   }
 
-.example-radio-group {
-    display: flex;
-    flex-direction: column;
-    margin: 15px 0;
-    align-items: flex-start;
-  }
+// .example-radio-group {
+//     display: flex;
+//     flex-direction: column;
+//     margin: 15px 0;
+//     align-items: flex-start;
+//   }
   
   .example-radio-button {
     margin: 5px;
+    color: rgb(17, 17, 17);
   }
 
-  .example-radio-group-label{
-    color: rgb(33, 32, 32);
-    font-weight: bold;
+  #example-radio-group-label{
+    font-weight: bolder;
     font-size: 1.3em;
+    margin: 5px;
   }
-  #matinput{
-    background-color: rgb(255, 255, 255);
+//   #matinput{
+//     background-color: rgb(255, 255, 255);
     
-    width: 50vw;
+//     width: 50vw;
+//     input{
+//         background-color: white;
+//         color: #151515;
+//         padding: 0.5em 0.7em;
+//         border: none;
+//         border-radius: 10px;
+//     }
+//   }
+//   ::ng-deep .mat-focused .mat-form-field-label {
+//     /*change color of label*/
+//     color:black !important;
+//    }
+  
+//    ::ng-deep.mat-form-field-underline {
+//     /*change color of underline*/
+//     background-color: black !important;
+//   } 
+  
+//   ::ng-deep.mat-form-field-ripple {
+//    /*change color of underline when focused*/
+//    background-color:black !important;
+//   }
+  #matinput{
+    
+    width: 30vw;
     input{
-        background-color: white;
-        color: #151515;
         padding: 0.5em 0.7em;
         border: none;
         border-radius: 10px;
     }
   }
-  ::ng-deep .mat-focused .mat-form-field-label {
-    /*change color of label*/
-    color: green !important;
-   }
-  
-   ::ng-deep.mat-form-field-underline {
-    /*change color of underline*/
-    background-color: green !important;
-  } 
-  
-  ::ng-deep.mat-form-field-ripple {
-   /*change color of underline when focused*/
-   background-color: green !important;
+
+    span{
+    font-weight: bold;
+    font: 1em;/* White dark */
+
   }
