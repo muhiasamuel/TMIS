@@ -17,7 +17,7 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
     ],
   })
   export class CriticalRolesAssessmentComponent {
-    data: any
+    formData:any;
     isEditable = false;
     selectedScore!: string;
     scores: number[] = [1, 2, 3, 4, 5 ];
@@ -63,7 +63,7 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
      // adding data to a form
      if (roleName && strategicImportance && revenueImpact && vacancyRisk && impactOnOperation && talentStrategy) {
       let data = new FormData();
-      this.data = {
+      this.formData = {
         "roleName":roleName,
         "roleDescription":roleName,
         "averageRating":"3",
@@ -81,14 +81,13 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
       this.postSkillAssessment()
      }else{
       console.log('some values are missing!')
-    
      }
 
       // Do something with the captured values
       console.log('RoleAdded:',roleName, "strategicImportance:",strategicImportance,"revenueImpact:", revenueImpact);
     }
     postSkillAssessment() {
-
+      throw new Error('Method not implemented.');
     }
-    
+
 }
