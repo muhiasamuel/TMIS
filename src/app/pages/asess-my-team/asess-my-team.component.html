@@ -1,3 +1,59 @@
+<div class="container-fluid">
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+      
+    <div class="table table-responsive">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> id </th>
+              <td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
+            </ng-container>
+        
+             <!-- Pf Column -->
+             <ng-container matColumnDef="pf">
+                <th mat-header-cell *matHeaderCellDef>PF </th>
+                <td mat-cell *matCellDef="let employee"> {{employee.pf}} </td>
+              </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
+            </ng-container>
+          
+            <!-- Department Column -->
+            <ng-container matColumnDef="department">
+              <th mat-header-cell *matHeaderCellDef> Department </th>
+              <td mat-cell *matCellDef="let employee"> {{employee.department}} </td>
+            </ng-container>
+          
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let employee">
+                <button class="btn btn-info text-white" (click)="openDialog(employee)">Open dialog</button>
+                <button class="btn btn-success text-white" (click)="goToAssessMyPotential(employee.id)">Assess</button>
+            </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <div class="bg-dark">
+            
+          <mat-paginator 
+          class="bg-success"
+          [length]="100"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+          aria-label="Select page of employee"></mat-paginator>
+          </div>
+</div>
 <h3>Assess My Team's Potential</h3>
 <table class="table table-stripped">
     <thead>
