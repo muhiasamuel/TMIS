@@ -9,6 +9,7 @@
     <mat-step [stepControl]="aspirationForm" [optional]="isOptional" *ngFor="let attr of potential_attributes; let i = index">
       <form [formGroup]="aspirationForm" (ngSubmit)="onSubmit()">
         <ng-template matStepLabel>{{attr.potential_attributes_name | uppercase}}</ng-template>
+        <br>
         <div *ngFor="let potential of potentials">
             <span>{{potential.Descriptor}}</span>
             <br><br>
@@ -19,7 +20,7 @@
               [formControlName]="potential.Descriptor"
              >
               <span style="letter-spacing: 10px;">{{option}}</span>
-          </span>
+            </span>
         </div>
 
         <div style="color: black;">
@@ -38,4 +39,7 @@
       </div>
     </mat-step>
   </mat-stepper>
+
+
+  <button btn-info router-link="/user-assessment">CLICK</button>
   

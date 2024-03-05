@@ -34,6 +34,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import { UserAssessmentComponent } from './pages/user-assessment/user-assessment.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MvpsComponent,
     SignInComponent,
     ErrorPageComponent,
+    UserAssessmentComponent,
    
   ],
   imports: [

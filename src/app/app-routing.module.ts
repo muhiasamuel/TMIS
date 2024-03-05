@@ -15,6 +15,7 @@ import { UserComponent } from './pages/user/user.component';
 import { MvpsComponent } from './pages/mvps/mvps.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { UserAssessmentComponent } from './pages/user-assessment/user-assessment.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,7 @@ const routes: Routes = [
       { path: 'appraisals',      component: AppraisalsComponent },
       { path: 'user',      component: UserComponent },
       { path: 'mvps',      component: MvpsComponent },
+      { path: 'user-assessment', component:UserAssessmentComponent},
   ]},
   {
     path: '**',
