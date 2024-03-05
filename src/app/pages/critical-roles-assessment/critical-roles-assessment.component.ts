@@ -22,6 +22,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     ],
   })
   export class CriticalRolesAssessmentComponent {
+    formData:any;
     isEditable = false;
     selectedScore!: string;
     scores: number[] = [1, 2, 3, 4, 5 ];
@@ -67,7 +68,6 @@ import {MatStepperModule} from '@angular/material/stepper';
      // adding data to a form
      if (roleName && strategicImportance && revenueImpact && vacancyRisk && impactOnOperation && talentStrategy) {
       let data = new FormData();
-<<<<<<< HEAD
       this.formData = {
         "roleName":roleName,
         "roleDescription":roleName,
@@ -79,25 +79,21 @@ import {MatStepperModule} from '@angular/material/stepper';
         "riskImpact":strategicImportance,
         "vacancyRisk":vacancyRisk,
         "impactOnOperation":vacancyRisk,
-        "skillExperience":skillExperience
+        "skillExperience":skillExpirience
       }
       
 
       this.postSkillAssessment()
      }else{
       console.log('some values are missing!')
-=======
-      data.append('rolename', roleName);
-      data.append('strategicImportance',strategicImportance)
-      data.append('revenueImpact',revenueImpact)
-      data.append('vacancyRisk',vacancyRisk)
-      data.append('impactOnOperation',impactOnOperation)
-      data.append('talentStrategy',talentStrategy)
-      console.log(data.getAll('roloname'));
->>>>>>> 54ca165766d60f61aa935a8664b084cbbe9326af
+
      }
 
       // Do something with the captured values
       console.log('RoleAdded:',roleName, "strategicImportance:",strategicImportance,"revenueImpact:", revenueImpact);
     }
+    postSkillAssessment() {
+      throw new Error('Method not implemented.');
+    }
+
 }
