@@ -35,6 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import { UserAssessmentComponent } from './pages/user-assessment/user-assessment.component';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
+import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +63,9 @@ import { UserAssessmentComponent } from './pages/user-assessment/user-assessment
     SignInComponent,
     ErrorPageComponent,
     UserAssessmentComponent,
+    ViewDialogComponent,
+    AddAssessmentQuestionsComponent,
+    AddPotentialDescriptorComponent,
    
   ],
   imports: [
@@ -70,13 +79,17 @@ import { UserAssessmentComponent } from './pages/user-assessment/user-assessment
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatPaginator,
+    MatTableModule,
     NgbModule,
     MatIconModule,
     MatSelectModule,
+    HttpClientModule,
     ToastrModule.forRoot()
     
   ],
   providers: [
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

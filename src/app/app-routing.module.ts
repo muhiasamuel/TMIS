@@ -16,6 +16,8 @@ import { MvpsComponent } from './pages/mvps/mvps.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { UserAssessmentComponent } from './pages/user-assessment/user-assessment.component';
+import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
+import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
 
 const routes: Routes = [
   {
@@ -39,6 +41,7 @@ const routes: Routes = [
       { path: 'user',      component: UserComponent },
       { path: 'mvps',      component: MvpsComponent },
       { path: 'user-assessment', component:UserAssessmentComponent},
+      { path: 'add-attributes',      component: AddAssessmentQuestionsComponent },
   ]},
   {
     path: '**',
