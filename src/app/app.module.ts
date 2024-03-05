@@ -34,6 +34,11 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import { ViewDialogComponent } from './view-dialog/view-dialog.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatOptionModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -65,7 +70,11 @@ import {MatRadioModule} from '@angular/material/radio';
     BrowserAnimationsModule,
     MatStepperModule,
     MatRadioModule,
+    MatPaginatorModule,
+    MatTableModule,
     FormsModule,
+    MatOptionModule,
+    MatSelectModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
