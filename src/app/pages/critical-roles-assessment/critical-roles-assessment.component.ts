@@ -84,6 +84,7 @@ import { HttpServiceService } from '../../services/http-service.service';
         "impactOnOperation":vacancyRisk,
         "skillExperience":skillExperience
       }
+      
 
       this.postSkillAssessment()
      }else{
