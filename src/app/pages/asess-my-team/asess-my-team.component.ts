@@ -2,8 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { ViewDialogComponent } from '../../view-dialog/view-dialog.component';
 import { MatPaginator } from '@angular/material/paginator';
+import { ViewDialogComponent } from '../view-dialog/test.component';
+import { DialogViewComponent } from '../dialog-view/dialog-view.component';
 
 
 export interface IEmployeeData{
@@ -76,6 +77,12 @@ export class AsessMyTeamComponent {
    paginator!: MatPaginator;
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  showDialog(){
+    this.dialog.open(DialogViewComponent,{
+      height: '45%' , width:'50%'})
+  
   }
 
   // method to open the dialog box
