@@ -37,8 +37,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { ViewDialogComponent } from './view-dialog/view-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ViewDialogComponent } from './pages/view-dialog/test.component';
+import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
 
 
 
@@ -63,6 +64,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     SignInComponent,
     ErrorPageComponent,
     ViewDialogComponent,
+    DialogViewComponent
     
   ],
   imports: [
