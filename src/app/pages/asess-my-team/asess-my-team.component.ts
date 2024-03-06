@@ -81,7 +81,7 @@ export class AsessMyTeamComponent {
 
   showDialog(){
     this.dialog.open(DialogViewComponent,{
-      height: '45%' , width:'50%'})
+       width:'50%'})
   
   }
 
