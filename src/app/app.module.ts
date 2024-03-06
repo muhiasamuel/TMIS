@@ -35,13 +35,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table'
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ViewDialogComponent } from './pages/view-dialog/test.component';
 import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
 
 
+import { MatOptionModule } from '@angular/material/core';
+import { MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
+import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
 
 @NgModule({
   declarations: [
@@ -64,8 +67,11 @@ import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
     SignInComponent,
     ErrorPageComponent,
     ViewDialogComponent,
-    DialogViewComponent
+    DialogViewComponent,
     
+    AddAssessmentQuestionsComponent,
+    AddPotentialDescriptorComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -83,6 +89,8 @@ import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatPaginator,
+    MatTableModule,
     NgbModule,
     MatIconModule,
     MatSelectModule,
