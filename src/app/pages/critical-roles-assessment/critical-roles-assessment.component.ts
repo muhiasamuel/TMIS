@@ -55,6 +55,7 @@ import { HttpServiceService } from '../../services/http-service.service';
     talentStrategyFormGroup: FormGroup = new FormGroup({
       talentStrategy: new FormControl('', [Validators.required]),
     });
+    postSkillAssessment: any;
 
     constructor(private http:HttpServiceService){}
 
@@ -86,50 +87,52 @@ import { HttpServiceService } from '../../services/http-service.service';
 
       this.formData = data;
 
-      this.postSkillAssessment()
+       this.postSkillAssessment()
      }
 
-      // Do something with the captured values
+      Do something with the captured values
       console.log('RoleAdded:',roleName, "strategicImportance:",strategicImportance,"revenueImpact:", revenueImpact,'vacancyRisk',vacancyRisk,'impactOnOperation',impactOnOperation,'talentStrategy',talentStrategy,"averageRating",'3.5');
     }
 
-=======
-      this.formData = {
-        "roleName":roleName,
-        "roleDescription":roleName,
-        "averageRating":"3",
-        "talentStrategy":talentStrategy,
-        "currentState":"risky",
-        "currentStrategy":talentStrategy,
-        "strategicImportance":strategicImportance,
-        "riskImpact":strategicImportance,
-        "vacancyRisk":vacancyRisk,
-        "impactOnOperation":vacancyRisk,
-        "skillExperience":skillExperience
-      }
+//       this.formData = {
+//         "roleName":roleName,
+//         "roleDescription":roleName,
+//         "averageRating":"3",
+//         "talentStrategy":talentStrategy,
+//         "currentState":"risky",
+//         "currentStrategy":talentStrategy,
+//         "strategicImportance":strategicImportance,
+//         "riskImpact":strategicImportance,
+//         "vacancyRisk":vacancyRisk,
+//         "impactOnOperation":vacancyRisk,
+//         "skillExperience":skillExperience
+//       }
 
-      this.postSkillAssessment()
-     }else{
-      console.log('some values are missing!')
-     }
+//       this.postSkillAssessment()
+//      }else{
+//       console.log('some values are missing!')
+//      }
 
-      // Do something with the captured values
-      console.log("data", this.formData);
-    }
+//       // Do something with the captured values
+//       console.log("data", this.formData);
+    
    
 
-    postSkillAssessment(){
-      this.http.createRoleAssessment(1,this.formData).subscribe(
-        ((res) =>{
-          console.log(res);
-        }),
-        ((err) => {
-          console.error("error creating a role", err)
-        }),
-        (() =>{
-          console.log("skill added successifully");
+//     postSkillAssessment(){
+//       this.http.createRoleAssessment(1,this.formData).subscribe(
+//         ((res: any) =>{
+//           console.log(res);
+//         }),
+//         ((err: any) => {
+//           console.error("error creating a role", err)
+//         }),
+//         (() =>{
+//           console.log("skill added successifully");
           
-        })
-      )
-    }
+//         })
+//       )
+//     }
+// function postSkillAssessment() {
+//   throw new Error('Function not implemented.');
 }
+

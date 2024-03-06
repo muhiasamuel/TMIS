@@ -12,10 +12,10 @@ export class HttpServiceService {
 
   serverUrl: string = 'http://192.168.90.33:8080/';
 
-  serverUrl: string = 'http://localhost:8080/';
+  // serverUrl: string = 'http://localhost:8080/';
 
  
-  //add RolesFor assesssment
+  add: any; RolesFor: any; assesssment: any
    data = {
     "roleName":"audit",
     "roleDescription":"well well",
@@ -30,7 +30,7 @@ export class HttpServiceService {
 
     "skillExpirience":"4"
 
-    "skillExperience":"4"
+    // "skillExperience":"4"
 
    }
 
