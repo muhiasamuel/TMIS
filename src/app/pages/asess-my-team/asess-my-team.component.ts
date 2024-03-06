@@ -67,9 +67,8 @@ export class AsessMyTeamComponent {
     { PF: '0074', name: 'Victor', Department: 'paedtric', Actions: 'View'},
     { PF: '0075', name: 'Dan', Department: 'dietetic', Actions: 'View'}
   ]
-  toggleCard(): void{
-    this.showCard = !this.showCard; 
-  }
+  
+  
 
   constructor(private router: Router, public dialog: MatDialog) {}
   @ViewChild(MatPaginator,{static: false})
@@ -103,5 +102,4 @@ export class AsessMyTeamComponent {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  showCard: boolean=false;
 }
