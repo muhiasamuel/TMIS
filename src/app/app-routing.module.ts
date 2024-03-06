@@ -16,6 +16,7 @@ import { MvpsComponent } from './pages/mvps/mvps.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -27,6 +28,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard',      component: DashboardComponent },
       { path: 'assess-my-potential',      component: SelfAssessmentComponent },
+      { path: 'assess-my-potential/:id',      component: SelfAssessmentComponent },
       { path: 'assess-my-team',      component: AsessMyTeamComponent },
       { path: 'roles',      component: RolesComponent },
       { path: 'critical-skills-assessment',      component: SkillsAssessmentComponent },

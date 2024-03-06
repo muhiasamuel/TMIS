@@ -35,6 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table'
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { ViewDialogComponent } from './view-dialog/view-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 @NgModule({
   declarations: [
@@ -56,13 +62,16 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
     MvpsComponent,
     SignInComponent,
     ErrorPageComponent,
-   
+    ViewDialogComponent,
+    
   ],
   imports: [
     BrowserModule,
     MatStepperModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatStepperModule,
+    MatTableModule,
     MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
@@ -73,6 +82,9 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
     MatIconModule,
     MatSelectModule,
     HttpClientModule,
+    MatPaginatorModule,
+    FormsModule,
+    MatDialogModule,
     ToastrModule.forRoot()
     
   ],
