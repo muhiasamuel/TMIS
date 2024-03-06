@@ -35,13 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ViewDialogComponent } from './pages/view-dialog/test.component';
 import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
-
-
 
 @NgModule({
   declarations: [
@@ -81,6 +80,9 @@ import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
     MatInputModule,
     MatButtonModule,
     NgbModule,
+    MatIconModule,
+    MatSelectModule,
+    HttpClientModule,
     MatIconModule,
     MatSelectModule,
     HttpClientModule,

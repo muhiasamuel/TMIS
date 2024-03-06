@@ -71,6 +71,29 @@ import { HttpServiceService } from '../../services/http-service.service';
      // adding data to a form
      if (roleName && strategicImportance && revenueImpact && vacancyRisk && impactOnOperation && talentStrategy) {
       let data = new FormData();
+
+      data.append('roleName', roleName);
+      data.append('roleDescription', roleName);
+      data.append('strategicImportance',strategicImportance)
+      data.append('riskImpact',revenueImpact)
+      data.append('vacancyRisk',vacancyRisk)
+      data.append('impactOnOperation',impactOnOperation)
+      data.append('talentStrategy',talentStrategy)
+      data.append('currentStrategy',talentStrategy)
+      data.append("averageRating",'3.5'); 
+      data.append("currentState",'red');    
+      console.log(data.getAll('roloname'));
+
+      this.formData = data;
+
+      this.postSkillAssessment()
+     }
+
+      // Do something with the captured values
+      console.log('RoleAdded:',roleName, "strategicImportance:",strategicImportance,"revenueImpact:", revenueImpact,'vacancyRisk',vacancyRisk,'impactOnOperation',impactOnOperation,'talentStrategy',talentStrategy,"averageRating",'3.5');
+    }
+
+=======
       this.formData = {
         "roleName":roleName,
         "roleDescription":roleName,
@@ -94,6 +117,7 @@ import { HttpServiceService } from '../../services/http-service.service';
       console.log("data", this.formData);
     }
    
+
     postSkillAssessment(){
       this.http.createRoleAssessment(1,this.formData).subscribe(
         ((res) =>{
