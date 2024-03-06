@@ -34,11 +34,12 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
-import { ViewDialogComponent } from './view-dialog/view-dialog.component';
-import { provideHttpClient, withFetch } from '@angular/common/http';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { MatOptionModule } from '@angular/material/core';
+import { MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
+import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
 
 @NgModule({
   declarations: [
@@ -60,8 +61,9 @@ import { MatOptionModule } from '@angular/material/core';
     MvpsComponent,
     SignInComponent,
     ErrorPageComponent,
-    ViewDialogComponent,
-    
+    AddAssessmentQuestionsComponent,
+    AddPotentialDescriptorComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -79,6 +81,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatPaginator,
+    MatTableModule,
     NgbModule,
     FormsModule,
     MatIconModule,
