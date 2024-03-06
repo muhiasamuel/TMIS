@@ -34,12 +34,14 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import { UserAssessmentComponent } from './pages/user-assessment/user-assessment.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { MatOptionModule } from '@angular/material/core';
 import { MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
 import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
+import { ViewDialogComponent } from './view-dialog/view-dialog.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { AddPotentialDescriptorComponent } from './pages/add-potential-descripto
     MvpsComponent,
     SignInComponent,
     ErrorPageComponent,
+    UserAssessmentComponent,
+    ViewDialogComponent,
     AddAssessmentQuestionsComponent,
     AddPotentialDescriptorComponent
    

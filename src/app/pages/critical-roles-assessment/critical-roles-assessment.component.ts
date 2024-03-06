@@ -1,11 +1,6 @@
-
 import {Component} from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatStepperModule} from '@angular/material/stepper';
 
 /**
  * @title Stepper that displays errors in the steps
@@ -28,31 +23,31 @@ import {MatStepperModule} from '@angular/material/stepper';
     scores: number[] = [1, 2, 3, 4, 5 ];
     // Form Groups for each step with relevant controls
     roleNameFormGroup: FormGroup = new FormGroup({
-      roleName: new FormControl(''),
+      roleName: new FormControl('',Validators.required),
     });
   
     strategicImportanceFormGroup: FormGroup = new FormGroup({
-      strategicImportance: new FormControl(''),
+      strategicImportance: new FormControl('',Validators.required),
     });
 
     revenueImpactFormGroup: FormGroup = new FormGroup({
-      revenueImpact: new FormControl(''),
+      revenueImpact: new FormControl('',Validators.required),
     });
 
     vacancyRiskFormGroup: FormGroup = new FormGroup({
-      vacancyRisk: new FormControl(''),
+      vacancyRisk: new FormControl('',Validators.required),
     });
   
     impactOnOperationFormGroup: FormGroup = new FormGroup({
-      impactOnOperation: new FormControl(''),
+      impactOnOperation: new FormControl('',Validators.required),
     });
 
     skillExpirienceFormGroup: FormGroup = new FormGroup({
-      skillExpirience: new FormControl(''),
+      skillExpirience: new FormControl('',Validators.required),
     });
 
     talentStrategyFormGroup: FormGroup = new FormGroup({
-      talentStrategy: new FormControl(''),
+      talentStrategy: new FormControl('',Validators.required),
     });
 
    async processValues() {
@@ -86,7 +81,6 @@ import {MatStepperModule} from '@angular/material/stepper';
       this.postSkillAssessment()
      }else{
       console.log('some values are missing!')
-
      }
 
       // Do something with the captured values

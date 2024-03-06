@@ -1,9 +1,9 @@
 <div class="container-fluid">
-  <div class="container">
+  <div class="container py-3 px-3 my-3 ">
     <p style="font-size: 20px; font-weight: 500;">Assessing critical roles is a systematic process of identifying and evaluating the positions within an organization that are most essential to its success. These roles are typically characterized by a high degree of impact on the organization's goals, difficulty in replacing, and the possession of specialized skills or knowledge.</p>
   </div>
   <mat-stepper linear #stepper>
-    <mat-step [stepControl]="roleNameFormGroup" [editable]="isEditable" errorMessage="Role Name Required">
+    <mat-step [stepControl]="roleNameFormGroup" errorMessage="Role Name Required">
       <form [formGroup]="roleNameFormGroup">
         <ng-template id="matStepLabel" matStepLabel>
             <span>Role Name</span>
@@ -14,7 +14,7 @@
         <br>
         <mat-form-field id="matinput">
           
-          <input matInput formControlName="roleName" placeholder="Enter Role Name" >
+          <input matInput formControlName="roleName" placeholder="Enter Role Name" required>
         </mat-form-field>
         <br>
         <div>
@@ -23,7 +23,7 @@
       </form>
     </mat-step>
   
-    <mat-step [stepControl]="strategicImportanceFormGroup" [editable]="isEditable" errorMessage="level score for strategicImportance required">
+    <mat-step [stepControl]="strategicImportanceFormGroup"  errorMessage="level score for strategicImportance required">
       <form [formGroup]="strategicImportanceFormGroup">
         <ng-template  matStepLabel>
             <span>Strategic Importance</span>   
@@ -39,13 +39,13 @@
         </mat-radio-group>
         <br>
         <div>
-          <button class="btn btn-info text-white"  matStepperPrevious>Back</button>
+          <button class="btn btn-primary" (click)="stepper.previous()">Back</button>
           <button class="btn btn-success text-white"  matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
   
-    <mat-step [stepControl]="revenueImpactFormGroup" [editable]="isEditable">
+    <mat-step [stepControl]="revenueImpactFormGroup" >
       <form [formGroup]="revenueImpactFormGroup">
         <ng-template matStepLabel>
             <span>Revenue/Value/Risk Impact</span>  
@@ -66,7 +66,7 @@
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="vacancyRiskFormGroup" [editable]="isEditable">
+    <mat-step [stepControl]="vacancyRiskFormGroup">
         <form [formGroup]="vacancyRiskFormGroup">
           <ng-template matStepLabel>
             <span> Vacancy Risk</span>  
@@ -87,7 +87,7 @@
         </form>
       </mat-step>
 
-      <mat-step [stepControl]="skillExpirienceFormGroup" [editable]="isEditable">
+      <mat-step [stepControl]="skillExpirienceFormGroup">
         <form [formGroup]="skillExpirienceFormGroup">
           <ng-template matStepLabel>
             <span> Skill/Expirience</span>  
@@ -107,7 +107,7 @@
           </div>
         </form>
       </mat-step>
-      <mat-step [stepControl]="impactOnOperationFormGroup" [editable]="isEditable">
+      <mat-step [stepControl]="impactOnOperationFormGroup">
         <form [formGroup]="impactOnOperationFormGroup">
           <ng-template matStepLabel>
             <span> Impact on Operation</span>  
@@ -134,7 +134,7 @@
             <span> Talent Strategy</span>           
         </ng-template>
         <p>
-          TALENT STRATEGY is a comprehensive plan that outlines an organization's approach to attracting, developing, engaging, and retaining top talent. It serves as a roadmap to ensure you have the right people in the right roles at the right time to achieve your business goals.</p>
+          Talent Strategy is a comprehensive plan that outlines an organization's approach to attracting, developing, engaging, and retaining top talent. It serves as a roadmap to ensure you have the right people in the right roles at the right time to achieve your business goals.</p>
     
           <mat-form-field style="width: 70vw;">
             <mat-label>
