@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
+import {FormBuilder, Validators, ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './sharedLayouts/footer/footer.component';
@@ -23,14 +30,11 @@ import { RolesComponent } from './pages/roles/roles.component';
 import { MvpsComponent } from './pages/mvps/mvps.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatStepperModule} from '@angular/material/stepper';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { ViewDialogComponent } from './view-dialog/view-dialog.component';
@@ -75,6 +79,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatInputModule,
     MatButtonModule,
     NgbModule,
+    MatIconModule,
+    MatSelectModule,
+    HttpClientModule,
     MatPaginatorModule,
     FormsModule,
     MatDialogModule,
@@ -82,6 +89,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     
   ],
   providers: [
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
