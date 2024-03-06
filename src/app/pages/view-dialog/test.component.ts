@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { IPotentialIdentification } from '../../../IPotentialIdentification';
 import { MatTableDataSource } from '@angular/material/table';
-import { IPotentialIdentification } from '../../IPotentialIdentification';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-view-dialog',
-  templateUrl: './view-dialog.component.html',
-  styleUrl: './view-dialog.component.scss'
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrl: './test.component.scss'
 })
 export class ViewDialogComponent {
+
   constructor(public dialogRef: MatDialogRef<ViewDialogComponent>) { }
 
 
@@ -60,4 +61,5 @@ export class ViewDialogComponent {
       score: 3,
       managerscore: 2,
     }]
+
 }

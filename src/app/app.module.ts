@@ -34,16 +34,13 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
-<<<<<<< HEAD
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-=======
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { ViewDialogComponent } from './view-dialog/view-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
-
-
->>>>>>> 729caa55bcc705be580fd21c39519a1d022fcc78
+import { ViewDialogComponent } from './pages/view-dialog/test.component';
+import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +63,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     SignInComponent,
     ErrorPageComponent,
     ViewDialogComponent,
+    DialogViewComponent
     
   ],
   imports: [
@@ -73,11 +71,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatStepperModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-<<<<<<< HEAD
-=======
     MatStepperModule,
     MatTableModule,
->>>>>>> 729caa55bcc705be580fd21c39519a1d022fcc78
     MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
@@ -85,15 +80,15 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatInputModule,
     MatButtonModule,
     NgbModule,
-<<<<<<< HEAD
     MatIconModule,
     MatSelectModule,
     HttpClientModule,
-=======
+    MatIconModule,
+    MatSelectModule,
+    HttpClientModule,
     MatPaginatorModule,
     FormsModule,
     MatDialogModule,
->>>>>>> 729caa55bcc705be580fd21c39519a1d022fcc78
     ToastrModule.forRoot()
     
   ],
