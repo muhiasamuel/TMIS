@@ -34,11 +34,14 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
-import { ViewDialogComponent } from './view-dialog/view-dialog.component';
-import { provideHttpClient, withFetch } from '@angular/common/http';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material/table';
-import { MatOptionModule } from '@angular/material/core';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table'
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ViewDialogComponent } from './pages/view-dialog/test.component';
+import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
+
+
 
 @NgModule({
   declarations: [
@@ -61,6 +64,7 @@ import { MatOptionModule } from '@angular/material/core';
     SignInComponent,
     ErrorPageComponent,
     ViewDialogComponent,
+    DialogViewComponent
     
   ],
   imports: [
@@ -69,19 +73,23 @@ import { MatOptionModule } from '@angular/material/core';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatStepperModule,
+    MatTableModule,
     MatRadioModule,
     MatPaginatorModule,
     MatTableModule,
     FormsModule,
-    MatOptionModule,
     MatSelectModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     NgbModule,
-    FormsModule,
     MatIconModule,
+    MatSelectModule,
+    HttpClientModule,
+    MatPaginatorModule,
+    FormsModule,
+    MatDialogModule,
     ToastrModule.forRoot()
     
   ],
