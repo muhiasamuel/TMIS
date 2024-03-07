@@ -7,7 +7,7 @@ import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms'
 @Component({
   selector: 'app-self-assessment',
   templateUrl: './self-assessment.component.html',
-  styleUrl: './self-assessment.component.scss'
+  styleUrls: ['./self-assessment.component.scss']
 })
 export class SelfAssessmentComponent implements OnInit{
   options = [1,2,3,4,5]
