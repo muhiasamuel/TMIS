@@ -33,7 +33,6 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { FormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -55,6 +54,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MvpsComponent,
     SignInComponent,
     ErrorPageComponent,
+    UserAssessmentComponent,
+    ViewDialogComponent,
+    AddAssessmentQuestionsComponent,
+    AddPotentialDescriptorComponent,
    
   ],
   imports: [
@@ -68,24 +71,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatPaginator,
+    MatTableModule,
     NgbModule,
     MatIconModule,
     MatSelectModule,
-    MatStepperModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatStepperModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
     ToastrModule.forRoot()
     
   ],
   providers: [
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
