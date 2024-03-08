@@ -6,6 +6,9 @@ import { MatPaginator } from '@angular/material/paginator';
 
 import { ViewDialogComponent } from './components/view-dialog/view-dialog.component';
 import { DialogViewComponent } from '../dialog-view/dialog-view.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 
@@ -58,26 +61,11 @@ const employeeData: IEmployeeData[] = [
 @Component({
   selector: 'app-asess-my-team',
   templateUrl:'./asess-my-team.component.html',
-  styleUrl: './asess-my-team.component.scss'
+  styleUrl: './asess-my-team.component.scss',
+  
 })
 
 export class AsessMyTeamComponent {
-  employees: any[]= [
-    { PF: '0076', name: 'Grace', Department: 'nursing', Actions: 'View'},
-    { PF: '0077', name: 'Beth', Department: 'anatomy', Actions: 'View'},
-    { PF: '0078', name: 'Mary', Department: 'microbiology', Actions: 'View'},
-    { PF: '0079', name: 'Muthui', Department: 'oncology', Actions: 'View'},
-    { PF: '0074', name: 'Victor', Department: 'paedtric', Actions: 'View'},
-    { PF: '0075', name: 'Dan', Department: 'dietetic', Actions: 'View'}
-  ]
-
-  // toggleCard(): void{
-  //   this.showCard = !this.showCard; 
-  // }
-
-  
-  
-
 
   constructor(private router: Router, public dialog: MatDialog) {}
   @ViewChild(MatPaginator,{static: false})
@@ -89,15 +77,14 @@ export class AsessMyTeamComponent {
 
   showDialog(){
     this.dialog.open(DialogViewComponent,{
-      height: '45%' , width:'50%'})
+    })
   
   }
 
-
   // method to open the dialog box
-  openDialog(employee:any): void {
+  openDialog(): void {
     this.dialog.open(ViewDialogComponent,{
-      width: '500px'
+      width: '60%',height: '70%'
     });
   }
   

@@ -11,13 +11,7 @@ import { IPotentialIdentification } from '../../../../../IPotentialIdentificatio
 export class ViewDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<ViewDialogComponent>) { }
-  
-  element: any;
-  displayedColumns: string[] = ['id', 'potential attribute', 'descriptors', 'score', 'manager score'];
-  dataSource: any = new MatTableDataSource<IPotentialIdentification>
-  pf: number = 456;
-  name: string = 'Joe Blogs';
-    potentialIdentificationData: IPotentialIdentification [] = [
+  potential=[
     {
       id: 1,
      potentialattribute: 'Aspiration', 
@@ -54,8 +48,51 @@ export class ViewDialogComponent {
       score: 2,
       managerscore: 4,
     },
+   
     {
-      id:6,
+      id:7,
+      potentialattribute:'Aspiration',
+      descriptor: 'Autonomy: Attracted to roles that allow them autonomy in how they execute their responsibilities. Thrive is self regulated roles',
+      score: 3,
+      managerscore: 2,
+    },
+    {
+      id:8,
+      potentialattribute:'Aspiration',
+      descriptor: 'Autonomy: Attracted to roles that allow them autonomy in how they execute their responsibilities. Thrive is self regulated roles',
+      score: 3,
+      managerscore: 2,
+    },
+    {
+      id:9,
+      potentialattribute:'Aspiration',
+      descriptor: 'Autonomy: Attracted to roles that allow them autonomy in how they execute their responsibilities. Thrive is self regulated roles',
+      score: 3,
+      managerscore: 2,
+    }, 
+    {
+      id:10,
+      potentialattribute:'Aspiration',
+      descriptor: 'Autonomy: Attracted to roles that allow them autonomy in how they execute their responsibilities. Thrive is self regulated roles',
+      score: 3,
+      managerscore: 2,
+    },
+    {
+      id:11,
+      potentialattribute:'Aspiration',
+      descriptor: 'Autonomy: Attracted to roles that allow them autonomy in how they execute their responsibilities. Thrive is self regulated roles',
+      score: 3,
+      managerscore: 2,
+    },
+    {
+      id:12,
+      potentialattribute:'Aspiration',
+      descriptor: 'Autonomy: Attracted to roles that allow them autonomy in how they execute their responsibilities. Thrive is self regulated roles',
+      score: 3,
+      managerscore: 2,
+    },
+    {
+      id:13,
       potentialattribute:'Aspiration',
       descriptor: 'Autonomy: Attracted to roles that allow them autonomy in how they execute their responsibilities. Thrive is self regulated roles',
       score: 3,

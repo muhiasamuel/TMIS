@@ -46,6 +46,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
 import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
 import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialo
     MatPaginatorModule,
     FormsModule,
     MatDialogModule,
+    MatTooltipModule,
     ToastrModule.forRoot()
     
   ],
