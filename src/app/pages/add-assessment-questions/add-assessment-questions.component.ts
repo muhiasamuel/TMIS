@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { AddPotentialDescriptorComponent } from '../add-potential-descriptor/add-potential-descriptor.component';
 
 @Component({
   selector: 'app-add-assessment-questions',
@@ -8,9 +10,17 @@ import { FormGroup, FormArray, FormControl } from '@angular/forms';
 })
 export class AddAssessmentQuestionsComponent {
   attributes: any = ['Aspiration', 'Judgement', 'Drive', 'Change Agility'];
+  targetForm:FormGroup = new FormGroup({
+    target:new FormControl("")
+  })
   questionForm: FormGroup = new FormGroup({
     questionList: new FormArray([this.getQuestionFields()]),
   });
+  constructor(private dialog:MatDialog){}
+
+  addAttributes(){
+    this.dialog.open(AddPotentialDescriptorComponent)
+  }
 
   getQuestionFields(): FormGroup {
     return new FormGroup({
