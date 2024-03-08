@@ -34,13 +34,19 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import { UserAssessmentComponent } from './pages/user-assessment/user-assessment.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table'
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
-import { ViewDialogComponent } from './pages/view-dialog/test.component';
 import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
+
+
+import { MatOptionModule } from '@angular/material/core';
+import { MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
+import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
+import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -60,11 +66,13 @@ import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
     UsersComponent,
     RolesComponent,
     MvpsComponent,
+    ViewDialogComponent,
     SignInComponent,
     ErrorPageComponent,
-    ViewDialogComponent,
-    DialogViewComponent
-    
+    UserAssessmentComponent,
+    AddAssessmentQuestionsComponent,
+    AddPotentialDescriptorComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -74,11 +82,16 @@ import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
     MatStepperModule,
     MatTableModule,
     MatRadioModule,
+    MatPaginatorModule,
+    MatTableModule,
     FormsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatPaginator,
+    MatTableModule,
     NgbModule,
     MatIconModule,
     MatSelectModule,
@@ -89,6 +102,7 @@ import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
     MatPaginatorModule,
     FormsModule,
     MatDialogModule,
+    MatTooltipModule,
     ToastrModule.forRoot()
     
   ],
