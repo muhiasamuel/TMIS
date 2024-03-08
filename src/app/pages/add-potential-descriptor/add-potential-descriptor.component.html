@@ -10,20 +10,21 @@
             <tr *ngFor="let quantity of attributes().controls; let i=index" [formGroupName]="i">  
             <td>  
                 Potential Attribute Name :  
-                <input type="text" formControlName="potentialAttributeName" class="form-control">  
+                <input type="text" formControlName="potentialAttributeName" class="form-control" required>  
             </td>  
-            <td>  
+            <td class="my-2">  
                 Potential Attribute Description:  
-                <input type="text" formControlName="potentialAttributeDescription" class="form-control">  
+                <input type="text" formControlName="potentialAttributeDescription" class="form-control" required>  
             </td>  
             <td>  
                 <button (click)="removeAttribute(i)" style="background-color: brown;" class="btn btn-danger">Remove</button>  
             </td>  
             </tr>
-            <td><button type="button" (click)="addAttribute()" class="btn btn-sm btn-primary">Add More</button></td>  
+            <td><button type="button" (click)="addAttribute()" class="btn btn-sm btn-primary my-4">Add More</button></td>  
         </table>  
         
         <button class="btn btn-success btn-sm float-right" type="submit">Submit</button>            
     </form>  
+    
       
 </div>
