@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './talent-mapping.component.scss'
 })
 export class TalentMappingComponent {
-
+  
 }

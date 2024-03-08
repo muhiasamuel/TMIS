@@ -12,7 +12,7 @@ export class HttpServiceService {
 
   serverUrl: string = 'http://192.168.90.33:8080/';
 
-  // serverUrl: string = 'http://localhost:8080/';
+  // serverUrl: string = 'http://192.168.89.128:8080/';
 
  
   add: any; RolesFor: any; assesssment: any

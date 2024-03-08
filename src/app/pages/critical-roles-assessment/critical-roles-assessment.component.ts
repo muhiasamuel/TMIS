@@ -1,11 +1,6 @@
-
 import {Component} from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatStepperModule} from '@angular/material/stepper';
 import { HttpServiceService } from '../../services/http-service.service';
 
 /**
@@ -23,39 +18,38 @@ import { HttpServiceService } from '../../services/http-service.service';
     ],
   })
   export class CriticalRolesAssessmentComponent {
-    isEditable = false;
     formData:any;
+    isEditable = false;
     selectedScore!: string;
     scores: number[] = [1, 2, 3, 4, 5 ];
     // Form Groups for each step with relevant controls
     roleNameFormGroup: FormGroup = new FormGroup({
-      roleName: new FormControl('', [Validators.required]),
+      roleName: new FormControl('',Validators.required),
     });
   
     strategicImportanceFormGroup: FormGroup = new FormGroup({
-      strategicImportance: new FormControl('',[Validators.required]),
+      strategicImportance: new FormControl('',Validators.required),
     });
 
     revenueImpactFormGroup: FormGroup = new FormGroup({
-      revenueImpact: new FormControl('', [Validators.required]),
+      revenueImpact: new FormControl('',Validators.required),
     });
 
     vacancyRiskFormGroup: FormGroup = new FormGroup({
-      vacancyRisk: new FormControl('', [Validators.required]),
+      vacancyRisk: new FormControl('',Validators.required),
     });
   
     impactOnOperationFormGroup: FormGroup = new FormGroup({
-      impactOnOperation: new FormControl('', [Validators.required]),
+      impactOnOperation: new FormControl('',Validators.required),
     });
 
     skillExpirienceFormGroup: FormGroup = new FormGroup({
-      skillExpirience: new FormControl('', [Validators.required]),
+      skillExpirience: new FormControl('',Validators.required),
     });
 
     talentStrategyFormGroup: FormGroup = new FormGroup({
-      talentStrategy: new FormControl('', [Validators.required]),
+      talentStrategy: new FormControl('',Validators.required),
     });
-    postSkillAssessment: any;
 
     constructor(private http:HttpServiceService){}
 
@@ -65,32 +59,32 @@ import { HttpServiceService } from '../../services/http-service.service';
       const revenueImpact = this.revenueImpactFormGroup?.get('revenueImpact')?.value;
       const vacancyRisk = this.vacancyRiskFormGroup?.get('vacancyRisk')?.value;
       const impactOnOperation = this.impactOnOperationFormGroup?.get('impactOnOperation')?.value;
-      const skillExperience = this.skillExpirienceFormGroup?.get('skillExpirience')?.value;
+      const skillExpirience = this.skillExpirienceFormGroup?.get('revenueImpact')?.value;
       const talentStrategy = this.talentStrategyFormGroup?.get('talentStrategy')?.value;
-      // const average = (strategicImportance + revenueImpact + vacancyRisk + impactOnOperation + skillExpirience)/6
+      const average = (strategicImportance + revenueImpact + vacancyRisk + impactOnOperation + skillExpirience)/6
 
      // adding data to a form
      if (roleName && strategicImportance && revenueImpact && vacancyRisk && impactOnOperation && talentStrategy) {
       let data = new FormData();
-
-      data.append('roleName', roleName);
-      data.append('roleDescription', roleName);
-      data.append('strategicImportance',strategicImportance)
-      data.append('riskImpact',revenueImpact)
-      data.append('vacancyRisk',vacancyRisk)
-      data.append('impactOnOperation',impactOnOperation)
-      data.append('talentStrategy',talentStrategy)
-      data.append('currentStrategy',talentStrategy)
-      data.append("averageRating",'3.5'); 
-      data.append("currentState",'red');    
-      console.log(data.getAll('roloname'));
-
-      this.formData = data;
+      this.formData = {
+        "roleName":roleName,
+        "roleDescription":roleName,
+        "averageRating":"3",
+        "talentStrategy":talentStrategy,
+        "currentState":"risky",
+        "currentStrategy":talentStrategy,
+        "strategicImportance":strategicImportance,
+        "riskImpact":strategicImportance,
+        "vacancyRisk":vacancyRisk,
+        "impactOnOperation":vacancyRisk,
+        "skillExperience":skillExpirience
+      }
+      
 
        this.postSkillAssessment()
      }
 
-      Do something with the captured values
+      //Do something with the captured values
       console.log('RoleAdded:',roleName, "strategicImportance:",strategicImportance,"revenueImpact:", revenueImpact,'vacancyRisk',vacancyRisk,'impactOnOperation',impactOnOperation,'talentStrategy',talentStrategy,"averageRating",'3.5');
     }
 
@@ -118,21 +112,21 @@ import { HttpServiceService } from '../../services/http-service.service';
     
    
 
-//     postSkillAssessment(){
-//       this.http.createRoleAssessment(1,this.formData).subscribe(
-//         ((res: any) =>{
-//           console.log(res);
-//         }),
-//         ((err: any) => {
-//           console.error("error creating a role", err)
-//         }),
-//         (() =>{
-//           console.log("skill added successifully");
+    postSkillAssessment(){
+      this.http.createRoleAssessment(1,this.formData).subscribe(
+        ((res: any) =>{
+          console.log(res);
+        }),
+        ((err: any) => {
+          console.error("error creating a role", err)
+        }),
+        (() =>{
+          console.log("skill added successifully");
           
-//         })
-//       )
-//     }
-// function postSkillAssessment() {
-//   throw new Error('Function not implemented.');
+        })
+      )
+    }
+
+
 }
 
