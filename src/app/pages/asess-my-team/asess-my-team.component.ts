@@ -3,8 +3,10 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { ViewDialogComponent } from '../view-dialog/test.component';
+
+import { ViewDialogComponent } from './components/view-dialog/view-dialog.component';
 import { DialogViewComponent } from '../dialog-view/dialog-view.component';
+
 
 
 export interface IEmployeeData{
@@ -68,8 +70,14 @@ export class AsessMyTeamComponent {
     { PF: '0074', name: 'Victor', Department: 'paedtric', Actions: 'View'},
     { PF: '0075', name: 'Dan', Department: 'dietetic', Actions: 'View'}
   ]
+
+  // toggleCard(): void{
+  //   this.showCard = !this.showCard; 
+  // }
+
   
   
+
 
   constructor(private router: Router, public dialog: MatDialog) {}
   @ViewChild(MatPaginator,{static: false})
@@ -77,6 +85,14 @@ export class AsessMyTeamComponent {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+
+  showDialog(){
+    this.dialog.open(DialogViewComponent,{
+      height: '45%' , width:'50%'})
+  
+  }
+
 
   // method to open the dialog box
   openDialog(employee:any): void {

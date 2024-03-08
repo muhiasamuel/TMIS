@@ -36,11 +36,16 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import { UserAssessmentComponent } from './pages/user-assessment/user-assessment.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
+
+
+import { MatOptionModule } from '@angular/material/core';
+import { MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
 import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
+import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
 
 @NgModule({
   declarations: [
@@ -60,8 +65,10 @@ import { AddPotentialDescriptorComponent } from './pages/add-potential-descripto
     UsersComponent,
     RolesComponent,
     MvpsComponent,
+    ViewDialogComponent,
     SignInComponent,
     ErrorPageComponent,
+    UserAssessmentComponent,
     AddAssessmentQuestionsComponent,
     AddPotentialDescriptorComponent
    
@@ -74,7 +81,10 @@ import { AddPotentialDescriptorComponent } from './pages/add-potential-descripto
     MatStepperModule,
     MatTableModule,
     MatRadioModule,
+    MatPaginatorModule,
+    MatTableModule,
     FormsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,

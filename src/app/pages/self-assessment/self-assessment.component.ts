@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IPotentialIdentification } from '../../../IPotentialIdentification';
 import { AssessmentService } from '../../services/data/assessment.service';
 import { log } from 'console';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
@@ -10,7 +9,6 @@ import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms'
   templateUrl: './self-assessment.component.html',
   styleUrls: ['./self-assessment.component.scss']
 })
-
 export class SelfAssessmentComponent implements OnInit{
   options = [1,2,3,4,5]
   potential_attributes = [{ 'potential_attributes_name':'aspiration'},{'potential_attributes_name':'judgement'}]
