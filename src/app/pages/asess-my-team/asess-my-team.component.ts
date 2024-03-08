@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { DialogViewComponent } from '../dialog-view/dialog-view.component';
 import { ViewDialogComponent } from './components/view-dialog/view-dialog.component';
 
 
@@ -59,23 +60,18 @@ const employeeData: IEmployeeData[] = [
 })
 
 export class AsessMyTeamComponent {
-  employees: any[]= [
-    { PF: '0076', name: 'Grace', Department: 'nursing', Actions: 'View'},
-    { PF: '0077', name: 'Beth', Department: 'anatomy', Actions: 'View'},
-    { PF: '0078', name: 'Mary', Department: 'microbiology', Actions: 'View'},
-    { PF: '0079', name: 'Muthui', Department: 'oncology', Actions: 'View'},
-    { PF: '0074', name: 'Victor', Department: 'paedtric', Actions: 'View'},
-    { PF: '0075', name: 'Dan', Department: 'dietetic', Actions: 'View'}
-  ]
-  toggleCard(): void{
-    this.showCard = !this.showCard; 
-  }
 
   constructor(private router: Router, public dialog: MatDialog) {}
   @ViewChild(MatPaginator,{static: false})
    paginator!: MatPaginator;
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  showDialog(){
+    this.dialog.open(DialogViewComponent,{
+       width:'50%'})
+  
   }
 
   // method to open the dialog box
@@ -103,5 +99,4 @@ export class AsessMyTeamComponent {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  showCard: boolean=false;
 }

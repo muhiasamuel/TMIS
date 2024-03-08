@@ -19,6 +19,7 @@ import { UserAssessmentComponent } from './pages/user-assessment/user-assessment
 import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
 import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -30,6 +31,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard',      component: DashboardComponent },
       { path: 'assess-my-potential',      component: SelfAssessmentComponent },
+      { path: 'assess-my-potential/:id',      component: SelfAssessmentComponent },
       { path: 'assess-my-team',      component: AsessMyTeamComponent },
       { path: 'roles',      component: RolesComponent },
       { path: 'critical-skills-assessment',      component: SkillsAssessmentComponent },
