@@ -5,7 +5,10 @@
         [orientation]="(stepperOrientation | async)!">
         <mat-step label="Add Attributes for this assessment">
           <app-add-potential-descriptor (newItemEvent)="getAddedAttributes($event)"></app-add-potential-descriptor>
-          <button mat-button matStepperNext>Next</button>
+          <div id="attrNext" class="mx-5 row">
+            <h6 class="col-md-6">Or Continue To Assessment With Already Created Attributes</h6>
+            <button class="btn btn-success text-white col-md-2"id="btnAttr" matStepperNext>Next</button>
+          </div>
         </mat-step>
 
         <mat-step label="Add Details and Question for this assessment">
@@ -18,7 +21,7 @@
                       <mat-label>Target Group for this assessment</mat-label>
                       <mat-select
                        formControlName="target">
-                        <mat-option *ngFor="let targetgrp of targetGroup" value="targetgrp">
+                        <mat-option *ngFor="let targetgrp of targetGroup" [value]="targetgrp">
                           {{targetgrp}}
                         </mat-option>
                       </mat-select>
@@ -27,7 +30,7 @@
                       <mat-label>Attribute to test in this assessment</mat-label>
                       <mat-select
                        formControlName="potentialAttributeId">
-                        <mat-option *ngFor="let attr of attributes" [value]="attr.potentialAttributeId">
+                        <mat-option *ngFor="let attr of assessmentAttributes" [value]="attr.potentialAttributeId">
                           {{attr.potentialAttributeName}}
                         </mat-option>
                       </mat-select>
@@ -37,7 +40,7 @@
                       <input matInput placeholder="Add Assessment Name" formControlName="assessmentName">
                     </mat-form-field></td>
                     <td><mat-form-field>
-                      <mat-label>Angular forms</mat-label>
+                      <mat-label>Assessment Expiration Date</mat-label>
                       <input matInput [matDatepicker]="picker1" formControlName="endDate">
                       <mat-hint>MM/DD/YYYY</mat-hint>
                       <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -115,5 +118,64 @@
           </div>
         </mat-step>
       </mat-stepper>
+
+      <div class="row my-3">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" >Assessment Creation History</h5>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let assessment of assessmentAttributes; let i = index">
+                    <th scope="row">{{i+1}}</th>
+
+                    <td *ngIf="assessment.assessments[0]">{{assessment.potentialAttributeName}}</td>
+                    <td >
+                      <tr *ngFor="let attr of assessment.assessments">
+                        <td>{{attr.assessmentName}}</td>
+                        <td>
+                          <tr *ngFor="let assQstn of attr.assessmentQuestions">
+                            <td>{{assQstn.assessmentQuestionDescription}}</td>
+                          </tr>
+                        </td>
+                      </tr>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Attributes Creation History</h5>
+                <table class="table table-stripped">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Attribute Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let assessment of assessmentAttributes;let i = index">
+                      <td>{{i+1}}</td>
+                      <td>{{assessment.potentialAttributeName}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
 

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormArray, FormControl,Validators, FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AddPotentialDescriptorComponent } from '../add-potential-descriptor/add-potential-descriptor.component';
@@ -9,13 +9,16 @@ import {map} from 'rxjs/operators';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { HttpServiceService } from '../../services/http-service.service';
 import moment from 'moment';
+import { log } from 'console';
 @Component({
   selector: 'app-add-assessment-questions',
   templateUrl: './add-assessment-questions.component.html',
   styleUrl: './add-assessment-questions.component.scss',
   providers: [provideNativeDateAdapter()],
-})
-export class AddAssessmentQuestionsComponent {
+}) 
+export class AddAssessmentQuestionsComponent implements OnInit{
+  assessmentAttributes: any;
+  assessments:any[] = [];
   targetGroup = ["IT",'Oprerations',"Credit","Insutance","The Group"]
   attributes: any ;
   assessmentData:any
@@ -26,6 +29,7 @@ export class AddAssessmentQuestionsComponent {
     assessmentDescription:new FormControl(""),
     endDate : new FormControl(new Date().toISOString()),
     potentialAttributeId:new FormControl(""),
+
 
   })
   questionForm: FormGroup = new FormGroup({
@@ -42,6 +46,10 @@ export class AddAssessmentQuestionsComponent {
       .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
   
   } 
+
+  ngOnInit(): void {
+    this.getAssessmentAttribute()
+  }
   getQuestionFields(): FormGroup {
     return new FormGroup({
       question_description: new FormControl(""),
@@ -119,27 +127,20 @@ export class AddAssessmentQuestionsComponent {
     const formattedEndDate = moment(targetData.endDate).format('YYYY-MM-DD');
     targetData = {
       ...targetData,
-      endDate: formattedEndDate
+      endDate: formattedEndDate,
+      createdAt: moment().format('YYYY-MM-DD')
     };
 
-    this.addAssessmentQuestions(targetData,serverData)
+   this.addAssessmentQuestions(targetData,serverData)
 
 
-    console.log("target data",targetData.endDate);
+    console.log("target data",targetData);
     
     
     console.log(serverData);  // This is the variable which contain all the form data
-    /*
-
-      Here we have 3 columns ( keys )
-      #attribute
-      #assessmentdescription
-      #choices
-
-      FOR SQL :- Now we can store it very simply in mysql database you only need to create one table which contain 4 columns name (type = varchar), class (type = varchar), age (teype = varchar) and subject (type = json)
-      FOR NoSQL :- It is very simple in noSQL databases like MONGODB here we have 4 keys and only we need to store the information in db
-    */
+  
   }
+  //adding assessments and assessment questions
   addAssessmentQuestions(targetData:any, serverData:any){
    const attributeId = targetData.potentialAttributeId
    if (!attributeId) {
@@ -165,8 +166,11 @@ export class AddAssessmentQuestionsComponent {
           this.http.createAssessmentQuestions(assId, serverData).subscribe(
             ((res) =>{
               console.log(res);
-              
-            })
+            }),
+            ((error) =>{console.error(error)}),
+            () => {
+              window.alert("Assignment Added successifuly")
+            }
           )
         }
 
@@ -174,4 +178,26 @@ export class AddAssessmentQuestionsComponent {
     )
    }
   }
+
+//getting attributes, assessment and assessment questions
+getAssessmentAttribute(){
+  this.http.getAssessments(1).subscribe(
+    ((res)=>{
+      if (res) {
+        this.assessmentAttributes= res?.item
+
+        console.log("request successful",this.assessmentAttributes);
+      }else{
+          window.alert('data not available')
+      }
+    }),
+    ((error)=>{
+      console.error("request hqas an error",error);
+    }),
+    ()=>{
+      console.log("success");
+      
+    }
+  )
+}
 }

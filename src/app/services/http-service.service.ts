@@ -37,4 +37,11 @@ export class HttpServiceService {
     const headers = new HttpHeaders({'content-type':'application/json'})
     return  this.http.post<any>(url, data)
   }
+
+  //get assessments, atrributes and assesment questions
+  //http://localhost:8080/getAssessments?managerId=1
+  getAssessments(managerId:number):Observable<any>{
+    const url = `${this.serverUrl}getAssessments?managerId=${managerId}`
+    return this.http.get<any>(url);
+  }
 }

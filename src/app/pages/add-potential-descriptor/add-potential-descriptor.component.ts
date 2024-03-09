@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Output, EventEmitter } from '@angular/core';
 import { HttpServiceService } from '../../services/http-service.service';
+import moment from 'moment';
+import { log } from 'console';
 
 @Component({
   selector: 'app-add-potential-descriptor',
@@ -30,6 +32,7 @@ export class AddPotentialDescriptorComponent {
     return this.fb.group({  
       potentialAttributeName: '',  
       potentialAttributeDescription: '',  
+      createdAt:moment().format('YYYY-MM-DD')
     })  
   }  
      
@@ -47,12 +50,14 @@ export class AddPotentialDescriptorComponent {
       window.alert("please fill out all fields")
     }else{
       this.data = this.attributeForm.value.attributes
+    
+      console.log(this.data)
       this.http.createAssessmentAttributes(1,this.data).subscribe(
         (res)=>{ console.log(res); 
           this.newItemEvent.emit(res);     
       },
       ((err) =>{
-        window.alert("there was an error submitting your records"+ err)
+        console.error("there was an error submitting your records"+ err)
       }),
       ()=>{
         window.alert("Attributes added")
