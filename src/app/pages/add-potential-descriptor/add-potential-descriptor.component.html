@@ -3,7 +3,7 @@
     <h5> Add Potential Attributes</h5>  
       
     <form [formGroup]="attributeForm" (ngSubmit)="onSubmit()">
-        <table class="table table-bordered" formArrayName="attributes">  
+        <table class="table table-striped" formArrayName="attributes">  
             <tr>  
             <th colspan="2">Add Multiple Attributes:</th> 
             </tr>  
@@ -20,10 +20,10 @@
                 <button (click)="removeAttribute(i)" style="background-color: brown;" class="btn btn-danger">Remove</button>  
             </td>  
             </tr>
-            <td><button type="button" (click)="addAttribute()" class="btn btn-sm btn-primary my-4">Add More</button></td>  
+            <td><button type="button" (click)="addAttribute()" class="btn btn-md btn-primary my-4">Add More</button></td>  
         </table>  
         
-        <button class="btn btn-success btn-sm float-right" type="submit">Submit</button>            
+        <button class="btn btn-success btn-md" id="submit" type="submit">Submit</button>            
     </form>  
     
       
