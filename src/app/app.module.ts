@@ -31,11 +31,9 @@ import { MvpsComponent } from './pages/mvps/mvps.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
-<<<<<<< HEAD
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-=======
 import { UserAssessmentComponent } from './pages/user-assessment/user-assessment.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
@@ -43,7 +41,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
 import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
->>>>>>> a632d62ff05b6873a728488487b95a7e78326da5
 
 @NgModule({
   declarations: [
@@ -87,21 +84,7 @@ import { AddPotentialDescriptorComponent } from './pages/add-potential-descripto
     NgbModule,
     MatIconModule,
     MatSelectModule,
-<<<<<<< HEAD
-    MatStepperModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatStepperModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-=======
     HttpClientModule,
->>>>>>> a632d62ff05b6873a728488487b95a7e78326da5
     ToastrModule.forRoot()
     
   ],
