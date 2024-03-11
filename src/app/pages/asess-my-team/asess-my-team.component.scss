@@ -10,4 +10,21 @@
     border: 0.3px solid rgb(165, 164, 164);
     border-radius: 10px;
     margin-bottom: 10px;
+}table {
+    width: 100%;
+  }
+
+  .mat-mdc-button-touch-target{
+    color: red;
+  }
+
+  .mat-mdc-paginator-range-actions{
+    color: red;
+
+  }
+table,th,td,tr {
+    border: 1px solid black;
+    padding: 8px;
+    // text-align: center;
+   
 }

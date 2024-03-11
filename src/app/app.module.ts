@@ -16,6 +16,8 @@ import { SidebarComponent } from './sidebar/sidebar/sidebar.component';
 import { AdminDashboardComponent } from './layouts/admin-dashboard/admin-dashboard.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 import { PluginComponent } from './sharedLayouts/plugin/plugin.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SelfAssessmentComponent } from './pages/self-assessment/self-assessment.component';
@@ -36,11 +38,18 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import { UserAssessmentComponent } from './pages/user-assessment/user-assessment.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
-import { MatPaginator } from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogViewComponent } from './pages/dialog-view/dialog-view.component';
+
+
+import { MatOptionModule } from '@angular/material/core';
+import { MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
 import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
+import { AsyncPipe } from '@angular/common';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
 
 @NgModule({
   declarations: [
@@ -60,21 +69,28 @@ import { AddPotentialDescriptorComponent } from './pages/add-potential-descripto
     UsersComponent,
     RolesComponent,
     MvpsComponent,
+    ViewDialogComponent,
     SignInComponent,
     ErrorPageComponent,
     UserAssessmentComponent,
-    ViewDialogComponent,
     AddAssessmentQuestionsComponent,
-    AddPotentialDescriptorComponent,
+    AddPotentialDescriptorComponent
    
   ],
   imports: [
     BrowserModule,
     MatStepperModule,
+    MatDatepickerModule,
+    AsyncPipe,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatStepperModule,
+    MatTableModule,
     MatRadioModule,
+    MatPaginatorModule,
+    MatTableModule,
     FormsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -85,11 +101,15 @@ import { AddPotentialDescriptorComponent } from './pages/add-potential-descripto
     MatIconModule,
     MatSelectModule,
     HttpClientModule,
+    MatPaginatorModule,
+    FormsModule,
+    MatDialogModule,
     ToastrModule.forRoot()
     
   ],
   providers: [
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch(),
+    )
   ],
   bootstrap: [AppComponent]
 })
