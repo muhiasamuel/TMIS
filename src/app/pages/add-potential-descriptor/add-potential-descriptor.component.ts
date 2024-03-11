@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { Output, EventEmitter } from '@angular/core';
+import { HttpServiceService } from '../../services/http-service.service';
+import moment from 'moment';
+import { log } from 'console';
 
 @Component({
   selector: 'app-add-potential-descriptor',
@@ -7,12 +11,13 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
   styleUrl: './add-potential-descriptor.component.scss'
 })
 export class AddPotentialDescriptorComponent {
-
+  issubmitting:boolean = false
   name = 'Angular';  
-    
+  data:any;  
   attributeForm: FormGroup;  
+  @Output() newItemEvent = new EventEmitter<boolean>();
      
-  constructor(private fb:FormBuilder) {  
+  constructor(private fb:FormBuilder, private http: HttpServiceService) {  
      
     this.attributeForm = this.fb.group({ 
       attributes: this.fb.array([]) ,  
@@ -27,6 +32,7 @@ export class AddPotentialDescriptorComponent {
     return this.fb.group({  
       potentialAttributeName: '',  
       potentialAttributeDescription: '',  
+      createdAt:moment().format('YYYY-MM-DD')
     })  
   }  
      
@@ -39,6 +45,28 @@ export class AddPotentialDescriptorComponent {
   }  
      
   onSubmit() {  
-    console.log(this.attributeForm.value.attributes);  
+    this.issubmitting = true
+    if (this.attributeForm.value.attributes =='' || this.attributeForm.value.attributes == null) {
+      window.alert("please fill out all fields")
+    }else{
+      this.data = this.attributeForm.value.attributes
+    
+      console.log(this.data)
+      this.http.createAssessmentAttributes(1,this.data).subscribe(
+        (res)=>{ console.log(res); 
+          this.newItemEvent.emit(res);     
+      },
+      ((err) =>{
+        console.error("there was an error submitting your records"+ err)
+      }),
+      ()=>{
+        window.alert("Attributes added")
+        this.issubmitting = false
+      }
+      )
+    }
+
+    console.log(this.attributeForm.value.attributes); 
+
   }  
 }

@@ -16,6 +16,8 @@ import { SidebarComponent } from './sidebar/sidebar/sidebar.component';
 import { AdminDashboardComponent } from './layouts/admin-dashboard/admin-dashboard.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 import { PluginComponent } from './sharedLayouts/plugin/plugin.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SelfAssessmentComponent } from './pages/self-assessment/self-assessment.component';
@@ -45,6 +47,8 @@ import { MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
 import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
+import { AsyncPipe } from '@angular/common';
+import {provideNativeDateAdapter} from '@angular/material/core';
 import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -77,6 +81,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   imports: [
     BrowserModule,
     MatStepperModule,
+    MatDatepickerModule,
+    AsyncPipe,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatStepperModule,
@@ -107,7 +113,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     
   ],
   providers: [
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch(),
+    )
   ],
   bootstrap: [AppComponent]
 })
