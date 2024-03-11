@@ -1,31 +1,58 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormArray, FormControl } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormArray, FormControl,Validators, FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AddPotentialDescriptorComponent } from '../add-potential-descriptor/add-potential-descriptor.component';
-
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {StepperOrientation, MatStepperModule, MatStepper} from '@angular/material/stepper';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { HttpServiceService } from '../../services/http-service.service';
+import moment from 'moment';
+import { log } from 'console';
 @Component({
   selector: 'app-add-assessment-questions',
   templateUrl: './add-assessment-questions.component.html',
-  styleUrl: './add-assessment-questions.component.scss'
-})
-export class AddAssessmentQuestionsComponent {
-  attributes: any = ['Aspiration', 'Judgement', 'Drive', 'Change Agility'];
-  targetForm:FormGroup = new FormGroup({
-    target:new FormControl("")
+  styleUrl: './add-assessment-questions.component.scss',
+  providers: [provideNativeDateAdapter()],
+}) 
+export class AddAssessmentQuestionsComponent implements OnInit{
+  assessmentAttributes: any;
+  assessments:any[] = [];
+  targetGroup = ["IT",'Oprerations',"Credit","Insutance","The Group"]
+  attributes: any ;
+  assessmentData:any
+  myVariable: string | null | undefined;
+  assessmentForm:FormGroup = new FormGroup({
+    target:new FormControl(""),
+    assessmentName:new FormControl(""),
+    assessmentDescription:new FormControl(""),
+    endDate : new FormControl(new Date().toISOString()),
+    potentialAttributeId:new FormControl(""),
+
+
   })
   questionForm: FormGroup = new FormGroup({
     questionList: new FormArray([this.getQuestionFields()]),
   });
-  constructor(private dialog:MatDialog){}
+ 
+  stepperOrientation: Observable<StepperOrientation>;  
+     
+  @ViewChild(MatStepper) stepper!: MatStepper;
+  constructor(private fb:FormBuilder,private dialog:MatDialog, private http: HttpServiceService,
+    breakpointObserver: BreakpointObserver,) {  
+      this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+  
+  } 
 
-  addAttributes(){
-    this.dialog.open(AddPotentialDescriptorComponent)
+  ngOnInit(): void {
+    this.getAssessmentAttribute()
   }
-
   getQuestionFields(): FormGroup {
     return new FormGroup({
       question_description: new FormControl(""),
-      attribute_name: new FormControl(""),
       questionChoices: new FormGroup({
         questionChoicesArray: new FormArray([this.putNewChoices()]),
       }),
@@ -66,40 +93,111 @@ export class AddAssessmentQuestionsComponent {
   removeNewChoice(i: number, j: number) {
     this.choicesArray(i).removeAt(j);
   }
+  getAddedAttributes(newItem: any) {
+    this.attributes = newItem.item
+    if (this.stepper) {
+      this.stepper.next();
+    }
+    console.log("12345678",this.attributes);
+  }
+  isStepComplete(): boolean {
+    return this.attributes && this.attributes.length > 0;
+  }
 
   getFormData() {
     let serverData: any = [],
+     targetData = JSON.parse(JSON.stringify(this.assessmentForm.value)),
       tempquestionFormData = JSON.parse(JSON.stringify(this.questionForm.value));
     tempquestionFormData.questionList.forEach((element: any) => {
       let tempObj: any = {
         assessmentQuestionDescription: element.question_description,
-        attributeId: element.attribute_name,
-        
         choices: [],
       };
       element.questionChoices.questionChoicesArray.forEach(
         (elementSubjectObj: any) => {
           let tempSubObj: any = {
-            choice_name: elementSubjectObj.choice_name,
-            choice_value: elementSubjectObj.choice_value,
+            choiceName: elementSubjectObj.choice_name,
+            choiceValue: elementSubjectObj.choice_value,
           };
           tempObj.choices.push(tempSubObj);
         }
       );
-      tempObj.choices = JSON.stringify(tempObj.choices);
       serverData.push(tempObj);
     });
+    const formattedEndDate = moment(targetData.endDate).format('YYYY-MM-DD');
+    targetData = {
+      ...targetData,
+      endDate: formattedEndDate,
+      createdAt: moment().format('YYYY-MM-DD')
+    };
+
+   this.addAssessmentQuestions(targetData,serverData)
+
+
+    console.log("target data",targetData);
+    
     
     console.log(serverData);  // This is the variable which contain all the form data
-    /*
-
-      Here we have 3 columns ( keys )
-      #attribute
-      #assessmentdescription
-      #choices
-
-      FOR SQL :- Now we can store it very simply in mysql database you only need to create one table which contain 4 columns name (type = varchar), class (type = varchar), age (teype = varchar) and subject (type = json)
-      FOR NoSQL :- It is very simple in noSQL databases like MONGODB here we have 4 keys and only we need to store the information in db
-    */
+  
   }
+  //adding assessments and assessment questions
+  addAssessmentQuestions(targetData:any, serverData:any){
+   const attributeId = targetData.potentialAttributeId
+   if (!attributeId) {
+    window.alert("attribute is required")
+   }else{
+    this.http.createAssessment(attributeId,targetData).subscribe(
+      ((res) =>{
+        this.assessmentData = res.item.assessments[0]
+        console.log(res);
+        
+      }),
+      ((error) =>{
+        console.error(error);
+        
+      }),
+      ()=>{
+        console.log("1234567890", this.assessmentData);
+        
+        if (!this.assessmentData) {
+          window.alert("assessment empty")
+        }else{
+          const assId = this.assessmentData?.assessmentId
+          this.http.createAssessmentQuestions(assId, serverData).subscribe(
+            ((res) =>{
+              console.log(res);
+            }),
+            ((error) =>{console.error(error)}),
+            () => {
+              window.alert("Assignment Added successifuly")
+            }
+          )
+        }
+
+      }
+    )
+   }
+  }
+
+//getting attributes, assessment and assessment questions
+getAssessmentAttribute(){
+  this.http.getAssessments(1).subscribe(
+    ((res)=>{
+      if (res) {
+        this.assessmentAttributes= res?.item
+
+        console.log("request successful",this.assessmentAttributes);
+      }else{
+          window.alert('data not available')
+      }
+    }),
+    ((error)=>{
+      console.error("request hqas an error",error);
+    }),
+    ()=>{
+      console.log("success");
+      
+    }
+  )
+}
 }
