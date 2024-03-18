@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { HttpServiceService } from '../../services/http-service.service';
 
 /**
  * @title Stepper that displays errors in the steps
@@ -50,6 +51,8 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
       talentStrategy: new FormControl('',Validators.required),
     });
 
+    constructor(private http:HttpServiceService){}
+
    async processValues() {
       const roleName = this.roleNameFormGroup?.get('roleName')?.value;
       const strategicImportance = this.strategicImportanceFormGroup?.get('strategicImportance')?.value;
@@ -78,16 +81,52 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
       }
       
 
-      this.postSkillAssessment()
-     }else{
-      console.log('some values are missing!')
+       this.postSkillAssessment()
      }
 
-      // Do something with the captured values
-      console.log('RoleAdded:',roleName, "strategicImportance:",strategicImportance,"revenueImpact:", revenueImpact);
-    }
-    postSkillAssessment() {
-      throw new Error('Method not implemented.');
+      //Do something with the captured values
+      console.log('RoleAdded:',roleName, "strategicImportance:",strategicImportance,"revenueImpact:", revenueImpact,'vacancyRisk',vacancyRisk,'impactOnOperation',impactOnOperation,'talentStrategy',talentStrategy,"averageRating",'3.5');
     }
 
+//       this.formData = {
+//         "roleName":roleName,
+//         "roleDescription":roleName,
+//         "averageRating":"3",
+//         "talentStrategy":talentStrategy,
+//         "currentState":"risky",
+//         "currentStrategy":talentStrategy,
+//         "strategicImportance":strategicImportance,
+//         "riskImpact":strategicImportance,
+//         "vacancyRisk":vacancyRisk,
+//         "impactOnOperation":vacancyRisk,
+//         "skillExperience":skillExperience
+//       }
+
+//       this.postSkillAssessment()
+//      }else{
+//       console.log('some values are missing!')
+//      }
+
+//       // Do something with the captured values
+//       console.log("data", this.formData);
+    
+   
+
+    postSkillAssessment(){
+      this.http.createRoleAssessment(1,this.formData).subscribe(
+        ((res: any) =>{
+          console.log(res);
+        }),
+        ((err: any) => {
+          console.error("error creating a role", err)
+        }),
+        (() =>{
+          console.log("skill added successifully");
+          
+        })
+      )
+    }
+
+
 }
+

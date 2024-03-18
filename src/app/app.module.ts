@@ -50,6 +50,7 @@ import { AddPotentialDescriptorComponent } from './pages/add-potential-descripto
 import { AsyncPipe } from '@angular/common';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -101,9 +102,13 @@ import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialo
     MatIconModule,
     MatSelectModule,
     HttpClientModule,
+    MatIconModule,
+    MatSelectModule,
+    HttpClientModule,
     MatPaginatorModule,
     FormsModule,
     MatDialogModule,
+    MatTooltipModule,
     ToastrModule.forRoot()
     
   ],
