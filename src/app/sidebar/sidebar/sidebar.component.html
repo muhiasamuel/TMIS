@@ -13,7 +13,7 @@
     </div>
       <ul class="nav">
           <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
-              <a [routerLink]="[menuItem.path]">
+              <a [routerLink]="[menuItem.path]" *ngIf="menuItem.userType">
                   <i class="nc-icon {{menuItem.icon}}" style="color: white;"></i>
                   <p style="color: white; font-weight: 500;">{{menuItem.title}}</p>
               </a>
