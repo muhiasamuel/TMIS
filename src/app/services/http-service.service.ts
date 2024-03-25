@@ -9,7 +9,12 @@ export class HttpServiceService {
 
   constructor(private http:HttpClient) { }
 
-  serverUrl: string = 'http://localhost:8080/';
+  //serverUrl: string = 'http://192.168.88.189:8080';
+  //serverUrl: string = 'http://192.168.0.105:8080';
+  serverUrl: string = 'http://192.168.90.4:8080';
+
+  //serverUrl: string = 'http://192.168.90.4:8080';
+
  
   //add RolesFor assesssment
    data = {
@@ -32,7 +37,6 @@ export class HttpServiceService {
 
     return this.http.post<any>(url, this.data,{headers})
 
-    return this.http.post<any>(url, formData)
   }
 
   //adding attributes for assessment
