@@ -51,6 +51,7 @@ import { AsyncPipe } from '@angular/common';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SkillsViewComponent } from './pages/skills-view/skills-view.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ErrorPageComponent,
     UserAssessmentComponent,
     AddAssessmentQuestionsComponent,
-    AddPotentialDescriptorComponent
+    AddPotentialDescriptorComponent,
+    SkillsViewComponent
    
   ],
   imports: [
