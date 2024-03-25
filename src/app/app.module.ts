@@ -51,6 +51,15 @@ import { AsyncPipe } from '@angular/common';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { PotentialAttributesComponent } from './pages/potential-attributes/potential-attributes.component';
+import { SingleAttributeComponent } from './pages/single-attribute/single-attribute.component';
+import { AttributesComponent } from './pages/attributes/attributes.component';
+import { TimerDialogComponent } from './pages/timer-dialog/timer-dialog.component';
+import { ManagerAssessComponent } from './pages/managerAssessEmployee/manager-assess/manager-assess.component';
+import { ManagerAssessEmployeeComponent } from './pages/managerAssessEmployee/manager-assess-employee/manager-assess-employee.component';
+import { AddAttributeComponent } from './pages/add-attribute/add-attribute.component';
+import { MyAssessmentsComponent } from './pages/self-assessment/my-assessments/my-assessments.component';
+import { UserDoneAssessmentsComponent } from './pages/managerAssessEmployee/user-done-assessments/user-done-assessments.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +84,16 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ErrorPageComponent,
     UserAssessmentComponent,
     AddAssessmentQuestionsComponent,
-    AddPotentialDescriptorComponent
+    AddPotentialDescriptorComponent,
+    PotentialAttributesComponent,
+    SingleAttributeComponent,
+    AttributesComponent,
+    TimerDialogComponent,
+    ManagerAssessComponent,
+    ManagerAssessEmployeeComponent,
+    AddAttributeComponent,
+    MyAssessmentsComponent,
+    UserDoneAssessmentsComponent
    
   ],
   imports: [
