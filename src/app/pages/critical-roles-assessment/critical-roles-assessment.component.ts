@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { HttpServiceService } from '../../services/http-service.service';
 
 /**
  * @title Stepper that displays errors in the steps
@@ -50,6 +51,8 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
       talentStrategy: new FormControl('',Validators.required),
     });
 
+    constructor(private http: HttpServiceService){}
+
    async processValues() {
       const roleName = this.roleNameFormGroup?.get('roleName')?.value;
       const strategicImportance = this.strategicImportanceFormGroup?.get('strategicImportance')?.value;
@@ -87,7 +90,12 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
       console.log('RoleAdded:',roleName, "strategicImportance:",strategicImportance,"revenueImpact:", revenueImpact);
     }
     postSkillAssessment() {
-      throw new Error('Method not implemented.');
+      if (this.formData) {
+       this.http.createRoleAssessment(1,this.formData).subscribe(
+        ((res)=>{
+          console.log(res);
+        })) 
+      }
     }
 
 }
