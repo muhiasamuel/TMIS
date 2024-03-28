@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AdminDashboardComponent } from './layouts/admin-dashboard/admin-dashboard.component';
 import { SelfAssessmentComponent } from './pages/self-assessment/self-assessment.component';
+import { MyAssessmentsComponent } from './pages/self-assessment/my-assessments/my-assessments.component';
+
 import { AsessMyTeamComponent } from './pages/asess-my-team/asess-my-team.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { SkillsAssessmentComponent } from './pages/skills-assessment/skills-assessment.component';
@@ -19,6 +21,11 @@ import { UserAssessmentComponent } from './pages/user-assessment/user-assessment
 import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
 import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
 import { SkillsViewComponent } from './pages/skills-view/skills-view.component';
+import { PotentialAttributesComponent } from './pages/potential-attributes/potential-attributes.component';
+import { SingleAttributeComponent } from './pages/single-attribute/single-attribute.component';
+import { AttributesComponent } from './pages/attributes/attributes.component';
+import { ManagerAssessComponent } from './pages/managerAssessEmployee/manager-assess/manager-assess.component';
+import { ManagerAssessEmployeeComponent } from './pages/managerAssessEmployee/manager-assess-employee/manager-assess-employee.component';
 
 
 const routes: Routes = [
@@ -31,9 +38,13 @@ const routes: Routes = [
     component: AdminDashboardComponent,
     children: [
       { path: 'dashboard',      component: DashboardComponent },
-      { path: 'assess-my-potential',      component: SelfAssessmentComponent },
+      { path: 'assess-my-potential',      component:ManagerAssessComponent },
+      { path: 'potential-attributes',      component: PotentialAttributesComponent },
+      { path: 'singleAtt/:id',      component: SingleAttributeComponent },
+      { path: 'assQuests/:id', component:AttributesComponent},
       { path: 'assess-my-potential/:id',      component: SelfAssessmentComponent },
-      { path: 'assess-my-team',      component: AsessMyTeamComponent },
+      { path: 'manager-assess/:id' , component: ManagerAssessEmployeeComponent },
+      { path: 'assess-my-team',      component: ManagerAssessComponent },
       { path: 'roles',      component: RolesComponent },
       { path: 'critical-skills-assessment',      component: SkillsAssessmentComponent },
       { path: 'critical-roles-assessment',      component: CriticalRolesAssessmentComponent },
