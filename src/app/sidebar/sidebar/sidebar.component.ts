@@ -29,7 +29,7 @@ export const ROUTES_EMPLOYEE: RouteInfo[] = [
     { path: '/assess-my-potential',         title: 'assess my Potential',             icon:'nc-diamond',    class: 'text-dark' , userType: true},
     { path: '/assess-my-team',          title: 'Assess My Team',              icon:'nc-pin-3',      class: '' , userType: false},
     { path: '/critical-roles-assessment', title: 'Assess Critical Roles',     icon:'nc-bell-55',    class: '' , userType: true },    
-    { path: '/critical-skills-assessment',         title: 'Assess Critical Skills',        icon:'nc-tile-56',    class: '' , userType: true },
+    { path: '/skills-view',         title: 'Assess Critical Skills',        icon:'nc-tile-56',    class: '' , userType: true },
     { path: '/talent-mapping',    title: 'Talent Mapping',        icon:'nc-caps-small', class: ''  , userType: true},
     { path: '/succession-plan',    title: 'Succession Plans',        icon:'nc-bulb-63', class: '' , userType: true },
     { path: '/user',          title: 'Profiles',      icon:'nc-single-02',  class: ''  , userType: true},

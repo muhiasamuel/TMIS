@@ -20,6 +20,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { UserAssessmentComponent } from './pages/user-assessment/user-assessment.component';
 import { AddPotentialDescriptorComponent } from './pages/add-potential-descriptor/add-potential-descriptor.component';
 import { AddAssessmentQuestionsComponent } from './pages/add-assessment-questions/add-assessment-questions.component';
+import { SkillsViewComponent } from './pages/skills-view/skills-view.component';
 import { PotentialAttributesComponent } from './pages/potential-attributes/potential-attributes.component';
 import { SingleAttributeComponent } from './pages/single-attribute/single-attribute.component';
 import { AttributesComponent } from './pages/attributes/attributes.component';
@@ -55,6 +56,7 @@ const routes: Routes = [
       { path: 'mvps',      component: MvpsComponent },
       { path: 'user-assessment', component:UserAssessmentComponent},
       { path: 'add-attributes',      component: AddAssessmentQuestionsComponent },
+      { path: 'skills-view',      component: SkillsViewComponent},
   ]},
   {
     path: '**',
