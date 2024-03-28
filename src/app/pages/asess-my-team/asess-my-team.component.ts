@@ -3,8 +3,13 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { DialogViewComponent } from '../dialog-view/dialog-view.component';
+
 import { ViewDialogComponent } from './components/view-dialog/view-dialog.component';
+import { DialogViewComponent } from '../dialog-view/dialog-view.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+
 
 
 export interface IEmployeeData{
@@ -56,7 +61,8 @@ const employeeData: IEmployeeData[] = [
 @Component({
   selector: 'app-asess-my-team',
   templateUrl:'./asess-my-team.component.html',
-  styleUrl: './asess-my-team.component.scss'
+  styleUrl: './asess-my-team.component.scss',
+  
 })
 
 export class AsessMyTeamComponent {
@@ -68,16 +74,17 @@ export class AsessMyTeamComponent {
     this.dataSource.paginator = this.paginator;
   }
 
+
   showDialog(){
     this.dialog.open(DialogViewComponent,{
-       width:'50%'})
+    })
   
   }
 
   // method to open the dialog box
-  openDialog(employee:any): void {
+  openDialog(): void {
     this.dialog.open(ViewDialogComponent,{
-      width: '500px'
+      width: '60%',height: '70%'
     });
   }
   
