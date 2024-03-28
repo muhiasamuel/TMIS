@@ -51,6 +51,7 @@ import { AsyncPipe } from '@angular/common';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { ViewDialogComponent } from './pages/asess-my-team/components/view-dialog/view-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SkillsViewComponent } from './pages/skills-view/skills-view.component';
 import { PotentialAttributesComponent } from './pages/potential-attributes/potential-attributes.component';
 import { SingleAttributeComponent } from './pages/single-attribute/single-attribute.component';
 import { AttributesComponent } from './pages/attributes/attributes.component';
@@ -85,6 +86,7 @@ import { UserDoneAssessmentsComponent } from './pages/managerAssessEmployee/user
     UserAssessmentComponent,
     AddAssessmentQuestionsComponent,
     AddPotentialDescriptorComponent,
+    SkillsViewComponent,
     PotentialAttributesComponent,
     SingleAttributeComponent,
     AttributesComponent,
