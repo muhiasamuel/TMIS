@@ -14,8 +14,8 @@ export class SignInComponent {
   user = {
     // "username":"CM0001Mo",
     // "password":"2345"
-      "username":"GK0001Ch",
-    "password":"1234"
+      "username":"samm",
+    "password":"sam"
 
   }
   loginForm = this._fb.group({
@@ -25,7 +25,7 @@ export class SignInComponent {
   constructor(private route:Router, private _fb: FormBuilder,
      private http: HttpClient, private server: HttpServiceService){}
   login(){
-    const url = `${this.server.serverUrl}/login`
+    const url = `${this.server.serverUrl}login`
     const response = this.http.post(url, this.user)
 
     response.subscribe(

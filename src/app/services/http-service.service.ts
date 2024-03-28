@@ -11,7 +11,7 @@ export class HttpServiceService {
 
   //serverUrl: string = 'http://192.168.88.189:8080';
   //serverUrl: string = 'http://192.168.0.105:8080';
-  serverUrl: string = 'http://192.168.90.4:8080/';
+  serverUrl: string = 'http://localhost:8080/';
 
   //serverUrl: string = 'http://192.168.90.4:8080';
 
