@@ -2,8 +2,15 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Output, EventEmitter } from '@angular/core';
 import { HttpServiceService } from '../../services/http-service.service';
-import moment from 'moment';
-import { log } from 'console';
+import moment, { duration } from 'moment';
+import {
+  MatSnackBar,
+  MatSnackBarAction,
+  MatSnackBarActions,
+  MatSnackBarLabel,
+  MatSnackBarRef,
+} from '@angular/material/snack-bar';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-potential-descriptor',
@@ -17,7 +24,7 @@ export class AddPotentialDescriptorComponent {
   attributeForm: FormGroup;  
   @Output() newItemEvent = new EventEmitter<boolean>();
      
-  constructor(private fb:FormBuilder, private http: HttpServiceService) {  
+  constructor(private fb:FormBuilder,public dialogRef: MatDialogRef<AddPotentialDescriptorComponent>, private http: HttpServiceService,private sb: MatSnackBar) {  
      
     this.attributeForm = this.fb.group({ 
       attributes: this.fb.array([]) ,  
@@ -32,7 +39,7 @@ export class AddPotentialDescriptorComponent {
     return this.fb.group({  
       potentialAttributeName: '',  
       potentialAttributeDescription: '',  
-      createdAt:moment().format('YYYY-MM-DD')
+      createdAt:moment().local()
     })  
   }  
      
@@ -60,7 +67,8 @@ export class AddPotentialDescriptorComponent {
         console.error("there was an error submitting your records"+ err)
       }),
       ()=>{
-        window.alert("Attributes added")
+        this.dialogRef.close()
+        this.sb.open("Attribute added succesfully",  'Close', { duration: 2000 })
         this.issubmitting = false
       }
       )

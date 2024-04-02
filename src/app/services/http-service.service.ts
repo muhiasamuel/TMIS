@@ -11,7 +11,7 @@ export class HttpServiceService {
 
   //serverUrl: string = 'http://192.168.88.189:8080';
   //serverUrl: string = 'http://192.168.0.105:8080';
-  serverUrl: string = 'http://192.168.90.4:8080';
+  serverUrl: string = 'http://localhost:8080/';
 
   //serverUrl: string = 'http://192.168.90.4:8080';
 
@@ -42,6 +42,8 @@ export class HttpServiceService {
   //adding attributes for assessment
   createAssessmentAttributes(managerId:number, data:any): Observable<any>{
     const url = `${this.serverUrl}addAttributeList?managerId=${managerId}`
+    console.log(url);
+    
     const headers = new HttpHeaders({'content-type':'application/json'})
     return  this.http.post<any>(url, data)
   }

@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpServiceService } from '../../services/http-service.service';
+import { AddPotentialDescriptorComponent } from '../add-potential-descriptor/add-potential-descriptor.component';
+import { AddAssessmentQuestionsComponent } from '../add-assessment-questions/add-assessment-questions.component';
 
 @Component({
   selector: 'app-single-attribute',
@@ -40,7 +42,7 @@ export class SingleAttributeComponent {
   }
 
   openDialog(){
-    this.dialog.open(AttributesComponent ,{
+    this.dialog.open(AddAssessmentQuestionsComponent ,{
       height: '45%' })
   }
 

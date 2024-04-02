@@ -55,8 +55,8 @@ export class PotentialAttributesComponent {
   }
 
   openDialog(){
-      this.dialog.open(AddAttributeComponent,{
-       
+      this.dialog.open(AddPotentialDescriptorComponent,{
+       width: "50vw"
       })
   }
 

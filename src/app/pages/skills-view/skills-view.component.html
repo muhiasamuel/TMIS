@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+            <div class="card-body skill-card">
+              <h1>Welcome to Critical Assessments Skills</h1>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero tempora praesentium unde id! Doloremque debitis neque mollitia ad. Tenetur dolores similique ipsam cupiditate dolore necessitatibus asperiores veniam fuga, placeat ad!</p>
+            </div>
+          </div>
+      </div>  
+      <div class="col-md-3">
+        <div class="card">
+            <div class="card-body text-center btn1">
+                <button type="button" class="btn btn-lg btn-primary" routerLink="/critical-skills-assessment" >Add Skill</button>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row">  
+            <div class="col-md-6">
+                <h3>Critical skills</h3>
+                <table class="table">              
+                    <tbody>
+                      <tr *ngFor="let skill of skills">
+                        <td>
+                            <img [src]="skill.Image" alt="">
+                            <span style="font-size: 20px; font-weight: bold; margin-left: 50px;">{{skill.skillName}}</span>
+                            <button type="button" class="btn btn-outline-primary float-end me-5">view</button>
+                        </td>
+                      </tr>                   
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col-md-6">
+                <h3>Category of skills</h3>
+                <table class="table">              
+                    <tbody>
+                      <tr *ngFor="let skill of skills">
+                        <td >
+                            <img [src]="skill.Image" alt="">
+                            <span style="font-size: 20px; font-weight: bold; margin-left: 50px;">{{skill.skillName}}</span>
+                            <button type="button" class="btn btn-outline-primary float-end me-5" [ngStyle]="{background: skill.critical=== 'high' ? 'red':skill.critical === 'medium' ? 'rgba(255, 191, 0, 1)': 'green'}" style="width: 100px;">{{skill.critical}}</button>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+            </div>
+           
+            
+            
+           
+          </div>
+    
+</div>

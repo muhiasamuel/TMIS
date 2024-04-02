@@ -142,8 +142,8 @@
                       <tr *ngFor="let attr of assessment.assessments">
                         <td>{{attr.assessmentName}}</td>
                         <td>
-                          <tr *ngFor="let assQstn of attr.assessmentQuestions">
-                            <td>{{assQstn.assessmentQuestionDescription}}</td>
+                          <tr *ngFor="let assQstn of attr.assessmentQuestions; let i = index">
+                            <td>{{(i+1) +"  " + assQstn.assessmentQuestionDescription}}</td>
                           </tr>
                         </td>
                       </tr>

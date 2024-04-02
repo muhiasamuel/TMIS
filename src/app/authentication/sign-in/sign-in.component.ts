@@ -12,8 +12,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class SignInComponent {
   systemUser: any 
   user = {
-    "username":"CM0001Mo",
-    "password":"2345"
+    // "username":"CM0001Mo",
+    // "password":"2345"
+      "username":"samm",
+    "password":"sam"
+
   }
   loginForm = this._fb.group({
     username : ['', Validators.required],
@@ -22,14 +25,15 @@ export class SignInComponent {
   constructor(private route:Router, private _fb: FormBuilder,
      private http: HttpClient, private server: HttpServiceService){}
   login(){
-    const url = `${this.server.serverUrl}/login`
+    const url = `${this.server.serverUrl}login`
     const response = this.http.post(url, this.user)
 
     response.subscribe(
       (response: any) => {
         if(response.status = 200){
             this.systemUser = response.item;
-            localStorage.setItem("user", JSON.stringify(this.systemUser));
+            localStorage.setItem("user", JSON.stringify(this.systemUser))
+            // localStorage.setItem("user", JSON.stringify(this.systemUser));
             console.log(response)
             this.route.navigate(['/dashboard'])
 
